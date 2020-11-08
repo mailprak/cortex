@@ -48,7 +48,7 @@ exec_file: run.sh
 pre_exec_debug: "Going to check the web_proxy connection configuration"
 assertExitStatus: [0, 137]
 post_exec_success_debug: "All configurations checkout ok"
-post_exec_fail_debug: "
+post_exec_fail_debug:
  120: "Found maxconn rate to be too low"
  110: "Found maxpipes to be too low"
 
