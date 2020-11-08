@@ -18,11 +18,11 @@ The architecture is quite simple, and think of synapse building directed acyclic
 	title="Architecture" width="500" height="500" />
 
 ## Creating neurons
-Neurons are folders with the following naming conventions:
-1. If it does not mutate anything, starts with "check_" as the suffix. For eg: "check_web_proxy_connection_config".
+Neurons are folders that contains a run script that can exit with a defined exit code and also contains a configuration yaml named neuron.yaml. A few conventions that would be good to follow :
+1. If the neuron script does not mutate anything, by convention, start with "check_" as the suffix. For eg: "check_web_proxy_connection_config".
 2. It its a mutating neuron i.e it updates a config or property, use "mutate_" as the suffix. For eg: "mutate_web_proxy_connection_config"
 
-The name of the folder should be unique and give enough indication on the activity
+This helps the reader to make quicker decisions on running a harmless synapse vs ones they need to be careful about running in say a production environment.The name of the folder should give enough indication on the activity
 
 To create a neuron, run 
 `cortex create-neuron check_web_proxy_conn_config`
@@ -43,21 +43,41 @@ sample neuron.yaml:
 ```
 ---
 name: check_web_proxy_conn_config
+type: check
 description: "A longer description"
 exec_file: run.sh
 pre_exec_debug: "Going to check the web_proxy connection configuration"
 assertExitStatus: [0, 137]
 post_exec_success_debug: "All configurations checkout ok"
 post_exec_fail_debug:
- 120: "Found maxconn rate to be too low"
- 110: "Found maxpipes to be too low"
+ - 120: "Found maxconn rate to be too low"
+ - 110: "Found maxpipes to be too low"
 
 ```
 
 
-As you notice, the exit code has a lot of importance in how your neurons communicate the a
+As you notice, the exit code has a lot of importance in how your neurons propogate the debugging to the next step within the synapse.
 
 ## Creating synapse   
+
+To create a synapse, run:
+`cortex create-synapse app_network_latency`
+This would create a folder with the following bootstrap files:
+
+```
+app_network_latency
+     |------ synapse.yaml     
+```
+For more options, run:
+`cortex create-synapse -h`
+
+To add a neuron to the synapse to be planned in sequance, run:
+`cortex add-neuron --synapse app_network_latency --neuron /usr/neurons/check_web_proxy_conn_config --sequence`
+and to add the same to be run in parallel:
+`cortex add-neuron --synapse app_network_latency --neuron /usr/neurons/check_web_proxy_conn_config --sequence`
+
+For more options, run:
+`cortex add-neuron -h`
 
 A sample synapse yaml when you want to fix something when you find and error:
 
@@ -97,11 +117,9 @@ name: app_network_latency
  - definition:
      - neuron: check_web_proxy_conn_config
       config:
-        type: check
         path: /usr/neurons/check_web_proxy_conn_config
     - neuron: check_api_gateway_conn_config
       config:
-        type: check
         path: /usr/neurons/check_web_proxy_conn_config
 plan:
   - config:
@@ -119,15 +137,15 @@ plan:
 name: app_network_latency
  - definition:
      - neuron: check_web_proxy_conn_config
-      config:
-        path: /usr/neurons/check_web_proxy_conn_config
-        fix:
+       config:
+         path: /usr/neurons/check_web_proxy_conn_config
+         fix:
           - 120: mutate_web_proxy_conn_bump_maxconn_config
           - 110: mutate_web_proxy_conn_bump_maxpipes_config
-    - neuron: check_api_gateway_conn_config
-      config:
-        path: /usr/neurons/check_web_proxy_conn_config
-        fix:
+     - neuron: check_api_gateway_conn_config
+       config:
+         path: /usr/neurons/check_web_proxy_conn_config
+         fix:
           - 120: mutate_api_gateway_conn_bump_maxconn_config
           - 110: mutate_api_gateway_conn_bump_maxpipes_config
     - neuron: mutate_web_proxy_conn_bump_maxconn_config
@@ -141,5 +159,3 @@ name: app_network_latency
      - check_web_proxy_cpu_usage
      - check_grafana_cpu_trend
 ```
-
-
