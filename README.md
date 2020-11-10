@@ -1,4 +1,10 @@
+
+<img src="./assets/cortex_logo.jpeg" alt="Cortex" style="horizontal-align:center"
+	    title="Cortex" width="150" height="150" />
+
+<p>
 A simple infrastructure debug orchestrator to bring your thoughts into discrete steps and tying them all together to effectively find or resolve issues.
+</p>
 
 # Motivation
 We all have nuances in how we debug issues and somehow we tend to think its an art. The aim with cortex is to bring some science and automation into how we debug infrastructural problems.The main task cortex tries to solve is bring some structure to the art and provide an easier way to mimic your thought process so that its easier to share with others
