@@ -23,6 +23,8 @@ The architecture is quite simple, and think of synapse building directed acyclic
 <img src="./assets/cortex.jpg" alt="Synapse"
 	title="Architecture" width="500" height="500" />
 
+where p_*_neurons are executed in parallel and s_*_neurons in serial
+
 ## Creating neurons
 Neurons are folders that contains a run script that can exit with a defined exit code and also contains a configuration yaml named neuron.yaml. A few conventions that would be good to follow :
 1. If the neuron script does not mutate anything, by convention, start with "check_" as the suffix. For eg: "check_web_proxy_connection_config".
@@ -78,9 +80,12 @@ For more options, run:
 `cortex create-synapse -h`
 
 To add a neuron to the synapse to be planned in sequance, run:
+
 `cortex add-neuron --synapse app_network_latency --neuron /usr/neurons/check_web_proxy_conn_config --sequence`
+
 and to add the same to be run in parallel:
-`cortex add-neuron --synapse app_network_latency --neuron /usr/neurons/check_web_proxy_conn_config --sequence`
+
+`cortex add-neuron --synapse app_network_latency --neuron /usr/neurons/check_web_proxy_conn_config --parallel`
 
 For more options, run:
 `cortex add-neuron -h`
@@ -91,7 +96,7 @@ A sample synapse yaml when you want to fix something when you find and error:
 ---
 name: app_network_latency
 plan:
- - definition:
+ definition:
     - neuron: check_web_proxy_conn_config
       config:
         path: /usr/neurons/check_web_proxy_conn_config
@@ -107,8 +112,10 @@ plan:
     - neuron: mutate_web_proxy_conn_bump_maxconn_config
       config:
         path: /usr/neurons/mutate_web_proxy_conn_bump_maxconn_config
-     
- - serial
+ plan:
+  config:
+    - exit_on_first_error: false    
+  serial
     - check_api_gateway_conn_config
     - check_web_proxy_cpu_usage
     - check_grafana_cpu_trend
@@ -120,17 +127,17 @@ plan:
 ```
 ---
 name: app_network_latency
- - definition:
-     - neuron: check_web_proxy_conn_config
+definition:
+  - neuron: check_web_proxy_conn_config
       config:
         path: /usr/neurons/check_web_proxy_conn_config
-    - neuron: check_api_gateway_conn_config
+  - neuron: check_api_gateway_conn_config
       config:
         path: /usr/neurons/check_web_proxy_conn_config
-plan:
-  - config:
-     - exit_on_first_error: false
-  - steps:
+ plan:
+    config:
+      - exit_on_first_error: false
+    steps:
       serial
         - check_web_proxy_conn_config
         - check_api_gateway_conn_config 
