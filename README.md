@@ -8,7 +8,9 @@ A simple infrastructure debug orchestrator to bring your thoughts into discrete 
 
 # Motivation
 We all have nuances in how we debug issues and somehow we tend to think its an art. The aim with cortex is to bring some science and automation into how we debug infrastructural problems.The main task cortex tries to solve is bring some structure to the art and provide an easier way to mimic your thought process so that its easier to share with others
-and not having to ponder "What did I do 2 weeks ago". The hope with this tool is that it would help the SRE to think in discrete steps that could then be collated, reused and executed in different ways which would help not just in expressing the tasks better, but also become primers for the juniors in the team to learn the different ways to debug 
+and not having to ponder "What did I do 2 weeks ago". The hope with this tool is that it would help the SRE to think in discrete steps that could then be collated, reused and executed in different ways which would help not just in expressing the tasks better, but also become primers for the juniors in the team to learn the different ways to debug. 
+
+We understand there are myriad sets of tools already out there and our aim is not build something for posterity, but to use something that was lightweight and easy to use till a better tool arrives. Even with tools like Chef and Ansible being used, a vast majority of debug steps are still just plain shell scripts and our aim was to harness that knowledge and use it a fashion that could bring some order to it.
 
 # How does cortex work?
 Cortex works on the following principles:
