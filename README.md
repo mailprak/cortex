@@ -3,12 +3,12 @@
 	    title="Cortex" width="150" height="150" />
 
 <p>
-A simple infrastructure debug orchestrator to bring your thoughts into discrete steps and tying them all together to effectively find or resolve issues.
+A simple infrastructure debug orchestrator to bring your thoughts into discrete steps and tie them all together to effectively find or resolve issues.
 </p>
 
 # Motivation
-We all have nuances in how we debug issues and somehow we tend to think its an art. The aim with cortex is to bring some science and automation into how we debug infrastructural problems.The main task cortex tries to solve is bring some structure to the art and provide an easier way to mimic your thought process so that its easier to share with others
-and not having to ponder "What did I do 2 weeks ago". The hope with this tool is that it would help the SRE to think in discrete steps that could then be collated, reused and executed in different ways which would help not just in expressing the tasks better, but also become primers for the juniors in the team to learn the different ways to debug. 
+We all have nuances in how we debug issues and somehow we tend to think it's an art. The aim with cortex is to bring some science and automation into how we debug infrastructure problems. The main task cortex tries to solve is bring some structure to the art and provide an easier way to mimic your thought process so that it's easier to share with others
+and not having to ponder "What did I do 2 weeks ago". The hope with this tool is that it would help the SRE to think in discrete steps that could then be collated, reused and executed in different ways which would help not just in expressing the tasks better, but also become primers for the juniors in the team to learn the different ways to debug.
 
 We understand there are myriad sets of tools already out there and our aim is not build something for posterity, but to use something that was lightweight and easy to use till a better tool arrives. Even with tools like Chef and Ansible being used, a vast majority of debug steps are still just plain shell scripts and our aim was to harness that knowledge and use it a fashion that could bring some order to it.
 
@@ -28,11 +28,11 @@ The architecture is quite simple, and think of synapse building directed acyclic
 where p_*_neurons are executed in parallel and s_*_neurons in serial
 
 ## Creating neurons
-Neurons are folders that contains a run script that can exit with a defined exit code and also contains a configuration yaml named neuron.yaml. A few conventions that would be good to follow :
-1. If the neuron script does not mutate anything, by convention, start with "check_" as the suffix. For eg: "check_web_proxy_connection_config".
-2. It its a mutating neuron i.e it updates a config or property, use "mutate_" as the suffix. For eg: "mutate_web_proxy_connection_config"
+Neurons are folders that contain a run script that can exit with a defined exit code and also contain a configuration yaml named neuron.yaml. A few conventions that would be good to follow:
+1. If the neuron script does not mutate anything, by convention, start with "check_" as the prefix. For eg: "check_web_proxy_connection_config".
+2. It its a mutating neuron i.e it updates a config or property, use "mutate_" as the prefix. For eg: "mutate_web_proxy_connection_config"
 
-This helps the reader to make quicker decisions on running a harmless synapse vs ones they need to be careful about running in say a production environment.The name of the folder should give enough indication on the activity
+This helps the reader to make quicker decisions on running a harmless synapse vs ones they need to be careful about running in say a production environment. The name of the folder should give enough indication on the activity.
 
 To create a neuron, run 
 `cortex create-neuron check_web_proxy_conn_config`
@@ -68,7 +68,7 @@ post_exec_fail_debug:
 
 As you notice, the exit code has a lot of importance in how your neurons propogate the debugging to the next step within the synapse.
 
-## Creating synapse   
+## Creating synapse
 
 To create a synapse, run:
 `cortex create-synapse app_network_latency`
@@ -124,7 +124,7 @@ plan:
     
 ```
 
- A synapse that only checks and does not mutate:               
+A synapse that only checks and does not mutate:               
 
 ```
 ---
@@ -145,7 +145,7 @@ definition:
         - check_api_gateway_conn_config 
 ```
 
- A synapse that that runs the checks in parallel:               
+A synapse that that runs the checks in parallel:               
     
 ```
 ---
