@@ -10,6 +10,8 @@ A simple infrastructure debug orchestrator to bring your thoughts into discrete 
 We all have nuances in how we debug issues and somehow we tend to think it's an art. The aim with cortex is to bring some science and automation into how we debug infrastructure problems. The main task cortex tries to solve is bring some structure to the art and provide an easier way to mimic your thought process so that it's easier to share with others
 and not having to ponder "What did I do 2 weeks ago". The hope with this tool is that it would help the SRE to think in discrete steps that could then be collated, reused and executed in different ways which would help not just in expressing the tasks better, but also become primers for the juniors in the team to learn the different ways to debug.
 
+We understand there are myriad sets of tools already out there and our aim is not build something for posterity, but to use something that was lightweight and easy to use till a better tool arrives. Even with tools like Chef and Ansible being used, a vast majority of debug steps are still just plain shell scripts and our aim was to harness that knowledge and use it a fashion that could bring some order to it.
+
 # How does cortex work?
 Cortex works on the following principles:
 1. Every action we take can be a discretely identified task through and is called a neuron
@@ -22,6 +24,8 @@ The architecture is quite simple, and think of synapse building directed acyclic
 
 <img src="./assets/cortex.jpg" alt="Synapse"
 	title="Architecture" width="500" height="500" />
+
+where p_*_neurons are executed in parallel and s_*_neurons in serial
 
 ## Creating neurons
 Neurons are folders that contain a run script that can exit with a defined exit code and also contain a configuration yaml named neuron.yaml. A few conventions that would be good to follow:
@@ -78,8 +82,11 @@ For more options, run:
 `cortex create-synapse -h`
 
 To add a neuron to the synapse to be planned in sequance, run:
+
 `cortex add-neuron --synapse app_network_latency --neuron /usr/neurons/check_web_proxy_conn_config --sequence`
+
 and to add the same to be run in parallel:
+
 `cortex add-neuron --synapse app_network_latency --neuron /usr/neurons/check_web_proxy_conn_config --parallel`
 
 For more options, run:
@@ -91,7 +98,7 @@ A sample synapse yaml when you want to fix something when you find and error:
 ---
 name: app_network_latency
 plan:
- - definition:
+ definition:
     - neuron: check_web_proxy_conn_config
       config:
         path: /usr/neurons/check_web_proxy_conn_config
@@ -107,8 +114,10 @@ plan:
     - neuron: mutate_web_proxy_conn_bump_maxconn_config
       config:
         path: /usr/neurons/mutate_web_proxy_conn_bump_maxconn_config
-     
- - serial
+ plan:
+  config:
+    - exit_on_first_error: false    
+  serial
     - check_api_gateway_conn_config
     - check_web_proxy_cpu_usage
     - check_grafana_cpu_trend
@@ -120,17 +129,17 @@ A synapse that only checks and does not mutate:
 ```
 ---
 name: app_network_latency
- - definition:
-     - neuron: check_web_proxy_conn_config
+definition:
+  - neuron: check_web_proxy_conn_config
       config:
         path: /usr/neurons/check_web_proxy_conn_config
-    - neuron: check_api_gateway_conn_config
+  - neuron: check_api_gateway_conn_config
       config:
         path: /usr/neurons/check_web_proxy_conn_config
-plan:
-  - config:
-     - exit_on_first_error: false
-  - steps:
+ plan:
+    config:
+      - exit_on_first_error: false
+    steps:
       serial
         - check_web_proxy_conn_config
         - check_api_gateway_conn_config 
