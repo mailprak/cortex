@@ -23,7 +23,8 @@ jobs:
         go get -v -t -d ./...
         go get github.com/onsi/gomega/...
         go get github.com/mitchellh/gox
-        go get github.com/onsi/ginkgo/ginkgo    
+        go get github.com/onsi/ginkgo/ginkgo
+        echo ${{ secrets.GITHUB_TOKEN }}
     - name: Build
       run: go build -v ./...
     - name: Test
