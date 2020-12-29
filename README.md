@@ -55,13 +55,13 @@ sample neuron.yaml:
 name: check_web_proxy_conn_config
 type: check
 description: "A longer description"
-exec_file: run.sh
+exec_file: %s
 pre_exec_debug: "Going to check the web_proxy connection configuration"
 assertExitStatus: [0, 137]
 post_exec_success_debug: "All configurations checkout ok"
 post_exec_fail_debug:
- - 120: "Found maxconn rate to be too low"
- - 110: "Found maxpipes to be too low"
+  120: "Found maxconn rate to be too low"
+  110: "Found maxpipes to be too low"`
 
 ```
 
@@ -97,30 +97,30 @@ A sample synapse yaml when you want to fix something when you find and error:
 ```
 ---
 name: app_network_latency
-plan:
- definition:
-    - neuron: check_web_proxy_conn_config
-      config:
-        path: /usr/neurons/check_web_proxy_conn_config
-        fix:
-          - 120: mutate_web_proxy_conn_bump_maxconn_config
-          - 110: mutate_web_proxy_conn_bump_maxpipes_config
-    - neuron: check_api_gateway_conn_config
-      config:
-        path: /usr/neurons/check_web_proxy_conn_config
-        fix:
-          - 120: mutate_api_gateway_conn_bump_maxconn_config
-          - 110: mutate_api_gateway_conn_bump_maxpipes_config
-    - neuron: mutate_web_proxy_conn_bump_maxconn_config
-      config:
-        path: /usr/neurons/mutate_web_proxy_conn_bump_maxconn_config
+definition:
+  - neuron: check_web_proxy_conn_config
+    config:
+      path: /usr/neurons/check_web_proxy_conn_config
+      fix:
+        - 120: mutate_web_proxy_conn_bump_maxconn_config
+        - 110: mutate_web_proxy_conn_bump_maxpipes_config
+  - neuron: check_api_gateway_conn_config
+    config:
+      path: /usr/neurons/check_web_proxy_conn_config
+      fix:
+        - 120: mutate_api_gateway_conn_bump_maxconn_config
+        - 110: mutate_api_gateway_conn_bump_maxpipes_config
+  - neuron: mutate_web_proxy_conn_bump_maxconn_config
+    config:
+    path: /usr/neurons/mutate_web_proxy_conn_bump_maxconn_config
  plan:
   config:
     - exit_on_first_error: false    
-  serial
-    - check_api_gateway_conn_config
-    - check_web_proxy_cpu_usage
-    - check_grafana_cpu_trend
+  steps:
+    serial
+      - check_api_gateway_conn_config
+      - check_web_proxy_cpu_usage
+      - check_grafana_cpu_trend
     
 ```
 
@@ -131,11 +131,11 @@ A synapse that only checks and does not mutate:
 name: app_network_latency
 definition:
   - neuron: check_web_proxy_conn_config
-      config:
-        path: /usr/neurons/check_web_proxy_conn_config
+    config:
+      path: /usr/neurons/check_web_proxy_conn_config
   - neuron: check_api_gateway_conn_config
-      config:
-        path: /usr/neurons/check_web_proxy_conn_config
+    config:
+      path: /usr/neurons/check_web_proxy_conn_config
  plan:
     config:
       - exit_on_first_error: false
