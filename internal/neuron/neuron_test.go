@@ -27,7 +27,9 @@ var _ = Describe("Neuron", func() {
 		neuronPath, err = ioutil.TempDir(os.TempDir(), "neuron")
 		Expect(err).NotTo(HaveOccurred())
 		Expect(neuronPath).NotTo(BeNil())
-		neuronConfigPath = filepath.Join(neuronPath, "sample-neuron.yaml")
+		neuronConfigFile, err := ioutil.TempFile("", "sample-neuron")
+		Expect(err).NotTo(HaveOccurred())
+		neuronConfigPath = neuronConfigFile.Name()
 
 		_, err = os.Create(neuronConfigPath)
 		Expect(err).NotTo(HaveOccurred())
