@@ -81,7 +81,7 @@ app_network_latency
 For more options, run:
 `cortex create-synapse -h`
 
-To add a neuron to the synapse to be planned in sequance, run:
+To add a neuron to the synapse to be planned in sequence, run:
 
 `cortex add-neuron --synapse app_network_latency --neuron /usr/neurons/check_web_proxy_conn_config --sequence`
 
@@ -92,7 +92,7 @@ and to add the same to be run in parallel:
 For more options, run:
 `cortex add-neuron -h`
 
-A sample synapse yaml when you want to fix something when you find and error:
+A sample synapse yaml when you want to fix something on occurrence of an error:
 
 ```
 ---
