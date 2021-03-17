@@ -30,7 +30,7 @@ where p_*_neurons are executed in parallel and s_*_neurons in serial
 ## Creating neurons
 Neurons are folders that contain a run script that can exit with a defined exit code and also contain a configuration yaml named neuron.yaml. A few conventions that would be good to follow:
 1. If the neuron script does not mutate anything, by convention, start with "check_" as the prefix. For eg: "check_web_proxy_connection_config".
-2. It its a mutating neuron i.e it updates a config or property, use "mutate_" as the prefix. For eg: "mutate_web_proxy_connection_config"
+2. If its a mutating neuron i.e it updates a config or property, use "mutate_" as the prefix. For eg: "mutate_web_proxy_connection_config"
 
 This helps the reader to make quicker decisions on running a harmless synapse vs ones they need to be careful about running in say a production environment. The name of the folder should give enough indication on the activity.
 
@@ -64,7 +64,6 @@ post_exec_fail_debug:
   110: "Found maxpipes to be too low"`
 
 ```
-
 
 As you notice, the exit code has a lot of importance in how your neurons propogate the debugging to the next step within the synapse.
 
