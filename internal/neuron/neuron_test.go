@@ -27,7 +27,9 @@ var _ = Describe("Neuron", func() {
 		neuronPath, err = ioutil.TempDir(os.TempDir(), "neuron")
 		Expect(err).NotTo(HaveOccurred())
 		Expect(neuronPath).NotTo(BeNil())
-		neuronConfigPath = filepath.Join(neuronPath, "sample-neuron.yaml")
+		neuronConfigFile, err := ioutil.TempFile("", "sample-neuron")
+		Expect(err).NotTo(HaveOccurred())
+		neuronConfigPath = neuronConfigFile.Name()
 
 		_, err = os.Create(neuronConfigPath)
 		Expect(err).NotTo(HaveOccurred())
@@ -78,6 +80,7 @@ post_exec_fail_debug:
 		BeforeEach(func() {
 			runPath := filepath.Join(neuronPath, "run.sh")
 			runFile, err = os.Create(runPath)
+			Expect(err).NotTo(HaveOccurred())
 			err = os.Chmod(runPath, os.ModePerm)
 			Expect(err).NotTo(HaveOccurred())
 			neuronConfigData = fmt.Sprintf(neuronConfigData, runPath)
@@ -86,6 +89,8 @@ post_exec_fail_debug:
 		It("exits with the right exit code", func() {
 			_, err = runFile.WriteString("#!/bin/bash \n exit 1")
 			Expect(err).NotTo(HaveOccurred())
+			runFile.Close()
+
 			n, err = neuron.NewNeuron(logger, neuronConfigPath)
 
 			exitCode, err := n.Excite(false, buffer)
