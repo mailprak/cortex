@@ -80,6 +80,8 @@ post_exec_fail_debug:
 		BeforeEach(func() {
 			runPath := filepath.Join(neuronPath, "run.sh")
 			runFile, err = os.Create(runPath)
+			Expect(err).NotTo(HaveOccurred())
+			defer runFile.Close()
 			err = os.Chmod(runPath, os.ModePerm)
 			Expect(err).NotTo(HaveOccurred())
 			neuronConfigData = fmt.Sprintf(neuronConfigData, runPath)
@@ -88,6 +90,7 @@ post_exec_fail_debug:
 		It("exits with the right exit code", func() {
 			_, err = runFile.WriteString("#!/bin/bash \n exit 1")
 			Expect(err).NotTo(HaveOccurred())
+
 			n, err = neuron.NewNeuron(logger, neuronConfigPath)
 
 			exitCode, err := n.Excite(false, buffer)
