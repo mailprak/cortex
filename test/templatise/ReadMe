@@ -1,0 +1,20 @@
+we can use Go's text/template package to generate the code based on a configuration file. This approach allows you to maintain a configuration file (e.g., YAML or JSON) and then generate the Go code dynamically.
+
+First, let's create a YAML configuration file (config.yaml):
+
+Next, we'll create a Go program that reads this configuration file and generates the Go code:
+Read the YAML configuration.
+Generate the Go code using a template
+
+For that : 
+Step 1: Define the configuration structs
+Create a file config.go:
+
+Step 2: Create the Go template
+Create a file template.go.tmpl:
+
+
+Running the Program
+Install YAML package: go get gopkg.in/yaml.v2
+Run the program: go run config.go
+This program will read the config.yaml file, generate the Go code, and write it to generated_code.go. You can then build and run the generated Go code as needed. This approach separates configuration from code and provides a flexible way to manage and generate code based on your configuration.
