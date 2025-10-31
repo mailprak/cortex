@@ -1,0 +1,16 @@
+name: system_health_check
+definition:
+  - neuron: check_disk_space
+    config:
+      path: /cortex/example/check_disk_space
+  - neuron: check_memory_usage
+    config:
+      path: /cortex/example/check_memory_usage
+plan:
+  config:
+    exit_on_first_error: false
+  steps:
+    serial:
+      - check_disk_space
+      - check_memory_usage
+    parallel: []

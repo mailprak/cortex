@@ -1,0 +1,12 @@
+name: check_pod_status
+type: check
+description: "Check Kubernetes pod status in a namespace"
+exec_file: /workspaces/cortex/example/k8s/check_pod_status/run.sh
+pre_exec_debug: "Checking pod status..."
+assert_exit_status:
+  - 0
+  - 110
+  - 120
+post_exec_success_debug: "Pod status check completed"
+post_exec_fail_debug:
+  130: "Pods in CrashLoopBackOff - critical issue"

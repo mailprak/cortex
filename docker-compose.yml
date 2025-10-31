@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  cortex:
+    build: .
+    image: cortex:latest
+    container_name: cortex
+    volumes:
+      # Mount kubeconfig for K8s access
+      - ${HOME}/.kube:/root/.kube:ro
+      # Mount examples directory
+      - ./example:/cortex/example
+      # Mount custom neurons/synapses
+      - ./custom:/cortex/custom
+    environment:
+      # Set default namespace
+      - NAMESPACE=default
+      # Kubeconfig path
+      - KUBECONFIG=/root/.kube/config
+    # Keep container running for interactive use
+    command: tail -f /dev/null
+    network_mode: host
+
+  # Example: Scheduled health checks
+  cortex-scheduler:
+    build: .
+    image: cortex:latest
+    container_name: cortex-scheduler
+    volumes:
+      - ${HOME}/.kube:/root/.kube:ro
+      - ./example:/cortex/example
+    environment:
+      - NAMESPACE=default
+      - KUBECONFIG=/root/.kube/config
+    # Run health check every 5 minutes
+    entrypoint: >
+      sh -c "
+      while true; do
+        echo '=== Running scheduled health check at $(date) ==='
+        cortex fire-synapse -p /cortex/example/k8s/k8s_cluster_health || true
+        sleep 300
+      done
+      "
+    restart: unless-stopped
+    network_mode: host
+    profiles:
+      - scheduler
+
+  # Example: One-time job
+  cortex-job:
+    build: .
+    image: cortex:latest
+    volumes:
+      - ${HOME}/.kube:/root/.kube:ro
+      - ./example:/cortex/example
+    environment:
+      - NAMESPACE=${NAMESPACE:-default}
+      - KUBECONFIG=/root/.kube/config
+    command: cortex fire-synapse -p /cortex/example/k8s/k8s_cluster_health
+    network_mode: host
+    profiles:
+      - job

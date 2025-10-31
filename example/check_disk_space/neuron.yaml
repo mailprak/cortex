@@ -1,0 +1,11 @@
+assert_exit_status:
+- 110
+- 0
+description: Description for check_disk_space
+exec_file: /cortex/example/check_disk_space/run.sh
+name: check_disk_space
+post_exec_fail_debug:
+  1: Execution failed
+post_exec_success_debug: check_disk_space completed successfully
+pre_exec_debug: Executing check_disk_space
+type: check

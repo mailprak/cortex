@@ -1,0 +1,10 @@
+assert_exit_status:
+- 0
+description: Description for check_memory_usage
+exec_file: /cortex/example/check_memory_usage/run.sh
+name: check_memory_usage
+post_exec_fail_debug:
+  1: Execution failed
+post_exec_success_debug: check_memory_usage completed successfully
+pre_exec_debug: Executing check_memory_usage
+type: check

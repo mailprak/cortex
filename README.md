@@ -27,6 +27,23 @@ The architecture is quite simple, and think of synapse building directed acyclic
 
 where p_*_neurons are executed in parallel and s_*_neurons in serial
 
+# Quick Start with Docker
+
+```bash
+# Build the Docker image
+make docker-build
+
+# Run system health check example
+docker run --rm -it cortex:latest \
+  cortex fire-synapse -p /cortex/example/system_health_check
+
+# Run Kubernetes health check (requires kubectl access)
+docker run --rm -it \
+  -v ~/.kube:/root/.kube:ro \
+  cortex:latest \
+  cortex fire-synapse -p /cortex/example/k8s/k8s_cluster_health
+```
+
 ## Creating neurons
 Neurons are folders that contain a run script that can exit with a defined exit code and also contain a configuration yaml named neuron.yaml. A few conventions that would be good to follow:
 1. If the neuron script does not mutate anything, by convention, start with "check_" as the prefix. For eg: "check_web_proxy_connection_config".
