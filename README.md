@@ -35,13 +35,13 @@ make docker-build
 
 # Run system health check example
 docker run --rm -it cortex:latest \
-  cortex fire-synapse -p /cortex/example/system_health_check
+  cortex exec /cortex/example/system_health_check
 
 # Run Kubernetes health check (requires kubectl access)
 docker run --rm -it \
   -v ~/.kube:/root/.kube:ro \
   cortex:latest \
-  cortex fire-synapse -p /cortex/example/k8s/k8s_cluster_health
+  cortex exec /cortex/example/k8s/k8s_cluster_health
 ```
 
 ## Creating neurons

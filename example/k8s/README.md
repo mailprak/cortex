@@ -100,7 +100,7 @@ POD_NAME=my-app-pod NAMESPACE=default ./mutate_restart_pod/run.sh
 **Usage:**
 ```bash
 cd k8s_cluster_health
-../../../cortex fire-synapse -p .
+../../../cortex exec -p .
 ```
 
 **Configuration:**
@@ -121,7 +121,7 @@ After deploying a new version, run the synapse to ensure:
 - No error events
 
 ```bash
-NAMESPACE=production ../../../cortex fire-synapse -p k8s_cluster_health
+NAMESPACE=production ../../../cortex exec -p k8s_cluster_health
 ```
 
 ### 2. **Automated Incident Response**
@@ -139,7 +139,7 @@ plan:
 ### 3. **Scheduled Health Checks**
 Add to cron or Kubernetes CronJob:
 ```bash
-*/5 * * * * cd /path/to/cortex/example/k8s && ./cortex fire-synapse -p k8s_cluster_health
+*/5 * * * * cd /path/to/cortex/example/k8s && ./cortex exec -p k8s_cluster_health
 ```
 
 ### 4. **Self-Healing Cluster**
@@ -222,7 +222,7 @@ rules:
 - name: K8s Health Check
   run: |
     cd cortex/example/k8s
-    ../../cortex fire-synapse -p k8s_cluster_health
+    ../../cortex exec -p k8s_cluster_health
 ```
 
 ---

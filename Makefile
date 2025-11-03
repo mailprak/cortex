@@ -41,12 +41,12 @@ docker-k8s-example: ## Run K8s health check example in Docker
 		-v $(HOME)/.kube:/root/.kube:ro \
 		-e NAMESPACE=default \
 		$(DOCKER_IMAGE):$(DOCKER_TAG) \
-		cortex fire-synapse -p /cortex/example/k8s/k8s_cluster_health
+		cortex exec -p /cortex/example/k8s/k8s_cluster_health
 
 docker-system-example: ## Run system health check example in Docker
 	docker run --rm -it \
 		$(DOCKER_IMAGE):$(DOCKER_TAG) \
-		cortex fire-synapse -p /cortex/example/system_health_check
+		cortex exec -p /cortex/example/system_health_check
 
 clean: ## Clean built binaries
 	rm -f $(BINARY_NAME)
@@ -86,7 +86,7 @@ ci-build: ## Build for CI
 
 # Quick examples
 example-system: build-local ## Run system health check example
-	cd example/system_health_check && ../../$(BINARY_NAME) fire-synapse -p .
+	cd example/system_health_check && ../../$(BINARY_NAME) exec -p .
 
 example-k8s: build-local ## Run K8s health check example
-	cd example/k8s/k8s_cluster_health && ../../../$(BINARY_NAME) fire-synapse -p .
+	cd example/k8s/k8s_cluster_health && ../../../$(BINARY_NAME) exec -p .

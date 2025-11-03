@@ -41,7 +41,7 @@ docker run --rm -it \
   -v ~/.kube:/root/.kube:ro \
   -e NAMESPACE=production \
   cortex:latest \
-  cortex fire-synapse -p /cortex/example/k8s/k8s_cluster_health
+  cortex exec -p /cortex/example/k8s/k8s_cluster_health
 ```
 
 ### Run System Health Check
@@ -58,7 +58,7 @@ make docker-shell
 # Inside container:
 cortex --help
 cd /cortex/example/k8s
-cortex fire-synapse -p k8s_cluster_health
+cortex exec -p k8s_cluster_health
 ```
 
 ## Docker Compose
@@ -71,7 +71,7 @@ docker-compose up -d
 
 # Execute commands
 docker-compose exec cortex cortex --help
-docker-compose exec cortex cortex fire-synapse -p /cortex/example/k8s/k8s_cluster_health
+docker-compose exec cortex cortex exec -p /cortex/example/k8s/k8s_cluster_health
 
 # View logs
 docker-compose logs -f
@@ -126,7 +126,7 @@ docker run --rm -it \
   -e VERBOSE=2 \
   -v ~/.kube:/root/.kube:ro \
   cortex:latest \
-  cortex fire-synapse -p /cortex/example/k8s/k8s_cluster_health
+  cortex exec -p /cortex/example/k8s/k8s_cluster_health
 ```
 
 ## Creating Custom Neurons in Container
@@ -165,7 +165,7 @@ spec:
             image: cortex:latest
             command:
               - cortex
-              - fire-synapse
+              - exec
               - -p
               - /cortex/example/k8s/k8s_cluster_health
             env:
@@ -249,7 +249,7 @@ cortex-health-check:
   script:
     - docker build -t cortex:latest .
     - docker run --rm -v ~/.kube:/root/.kube:ro cortex:latest
-      cortex fire-synapse -p /cortex/example/k8s/k8s_cluster_health
+      cortex exec -p /cortex/example/k8s/k8s_cluster_health
   only:
     - schedules
 ```
@@ -279,7 +279,7 @@ ls -la ~/.kube/config
 # Run with explicit path
 docker run --rm -it \
   -v /path/to/.kube:/root/.kube:ro \
-  cortex:latest cortex fire-synapse -p /cortex/example/k8s/k8s_cluster_health
+  cortex:latest cortex exec -p /cortex/example/k8s/k8s_cluster_health
 ```
 
 ### Permission Denied
@@ -299,7 +299,7 @@ kubectl auth can-i delete pods
 docker run --rm -it \
   --network host \
   -v ~/.kube:/root/.kube:ro \
-  cortex:latest cortex fire-synapse -p /cortex/example/k8s/k8s_cluster_health
+  cortex:latest cortex exec -p /cortex/example/k8s/k8s_cluster_health
 ```
 
 ## Best Practices

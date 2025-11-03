@@ -25,6 +25,7 @@ import (
 )
 
 var neuronType string
+var neuronDir string
 
 // createNeuronCmd represents the createNeuron command
 var createNeuronCmd = &cobra.Command{
@@ -35,28 +36,65 @@ var createNeuronCmd = &cobra.Command{
 	Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		neuronName := args[0]
-		createNeuron(neuronName)
+
+		// Validate name is not empty
+		if neuronName == "" {
+			fmt.Println("Error: Neuron name is mandatory")
+			os.Exit(1)
+		}
+
+		createNeuron(neuronName, neuronDir)
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(createNeuronCmd)
 	createNeuronCmd.Flags().StringVarP(&neuronType, "type", "t", "check", "Type of neuron (check or mutate)")
+	createNeuronCmd.Flags().StringVarP(&neuronDir, "dir", "d", ".", "Directory where neuron should be created")
 }
 
-func createNeuron(name string) {
+func createNeuron(name string, baseDir string) {
+	// Validate base directory exists
+	if baseDir != "." {
+		if _, err := os.Stat(baseDir); os.IsNotExist(err) {
+			fmt.Printf("Error: Directory '%s' does not exist\n", baseDir)
+			os.Exit(1)
+		}
+
+		// Check if directory is writable
+		testFile := filepath.Join(baseDir, ".write_test")
+		if err := os.WriteFile(testFile, []byte("test"), 0644); err != nil {
+			fmt.Printf("Error: Directory '%s' is not writable\n", baseDir)
+			os.Exit(1)
+		}
+		os.Remove(testFile)
+	}
+
+	// Build full neuron path
+	neuronPath := filepath.Join(baseDir, name)
+
+	// Check if neuron already exists
+	if _, err := os.Stat(neuronPath); err == nil {
+		fmt.Printf("Error: Neuron '%s' already exists in '%s'\n", name, baseDir)
+		os.Exit(1)
+	}
+
 	// Create neuron directory
-	if err := os.MkdirAll(name, 0755); err != nil {
+	if err := os.MkdirAll(neuronPath, 0755); err != nil {
 		fmt.Printf("Error creating neuron directory: %v\n", err)
 		os.Exit(1)
 	}
 
 	// Create neuron.yaml
+	// Get absolute path for exec_file
+	absNeuronPath, _ := filepath.Abs(neuronPath)
+	execFile := filepath.Join(absNeuronPath, "run.sh")
+
 	neuronConfig := map[string]interface{}{
 		"name":                     name,
 		"type":                     neuronType,
 		"description":              fmt.Sprintf("Description for %s", name),
-		"exec_file":                "./run.sh",
+		"exec_file":                execFile,
 		"pre_exec_debug":           fmt.Sprintf("Executing %s", name),
 		"assert_exit_status":       []int{0},
 		"post_exec_success_debug":  fmt.Sprintf("%s completed successfully", name),
@@ -71,7 +109,7 @@ func createNeuron(name string) {
 		os.Exit(1)
 	}
 
-	configPath := filepath.Join(name, "neuron.yaml")
+	configPath := filepath.Join(neuronPath, "neuron.yaml")
 	if err := os.WriteFile(configPath, yamlData, 0644); err != nil {
 		fmt.Printf("Error writing neuron.yaml: %v\n", err)
 		os.Exit(1)
@@ -83,13 +121,13 @@ func createNeuron(name string) {
 echo "Running ` + name + `"
 exit 0
 `
-	runShPath := filepath.Join(name, "run.sh")
+	runShPath := filepath.Join(neuronPath, "run.sh")
 	if err := os.WriteFile(runShPath, []byte(runShScript), 0755); err != nil {
 		fmt.Printf("Error writing run.sh: %v\n", err)
 		os.Exit(1)
 	}
 
-	fmt.Printf("✓ Created neuron '%s' with type '%s'\n", name, neuronType)
-	fmt.Printf("  - %s/neuron.yaml\n", name)
-	fmt.Printf("  - %s/run.sh\n", name)
+	fmt.Printf("✓ Created neuron '%s' with type '%s' in '%s'\n", name, neuronType, baseDir)
+	fmt.Printf("  - %s/neuron.yaml\n", neuronPath)
+	fmt.Printf("  - %s/run.sh\n", neuronPath)
 }

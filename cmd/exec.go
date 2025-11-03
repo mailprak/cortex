@@ -60,20 +60,24 @@ type PlanSteps struct {
 
 var synapsePath string
 
-// fireSynapseCmd represents the fireSynapse command
-var fireSynapseCmd = &cobra.Command{
-	Use:     "fire-synapse",
+// execCmd represents the exec command
+var execCmd = &cobra.Command{
+	Use:     "exec [path]",
 	Short:   "Execute a synapse",
 	Long:    `Execute a synapse by running all neurons in the defined plan`,
-	Aliases: []string{"fs", "fire"},
+	Args:    cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		fireSynapse(synapsePath)
+		path := synapsePath
+		if len(args) > 0 {
+			path = args[0]
+		}
+		fireSynapse(path)
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(fireSynapseCmd)
-	fireSynapseCmd.Flags().StringVarP(&synapsePath, "path", "p", ".", "Path to synapse directory")
+	rootCmd.AddCommand(execCmd)
+	execCmd.Flags().StringVarP(&synapsePath, "path", "p", ".", "Path to synapse directory")
 }
 
 func fireSynapse(path string) {

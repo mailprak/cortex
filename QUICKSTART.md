@@ -111,7 +111,7 @@ plan:
 ### 6. Fire the synapse
 
 ```bash
-./cortex fire-synapse -p system_health_check
+./cortex exec -p system_health_check
 ```
 
 ## Available Commands
@@ -119,7 +119,7 @@ plan:
 - `cortex create-neuron <name>` - Create a new neuron
   - Use `-t mutate` flag for mutating neurons
 - `cortex create-synapse <name>` - Create a new synapse
-- `cortex fire-synapse -p <path>` - Execute a synapse
+- `cortex exec -p <path>` - Execute a synapse
   - Use `-v <level>` for verbose output (0-4)
 
 ## Example Workflow
@@ -133,7 +133,7 @@ To run the example:
 
 ```bash
 cd example/system_health_check
-../../cortex fire-synapse -p .
+../../cortex exec -p .
 ```
 
 ## Exit Codes
