@@ -1,0 +1,14 @@
+name: check_recent_events
+type: check
+description: "Check recent Kubernetes events for warnings and errors"
+exec_file: /workspaces/cortex/example/k8s/check_recent_events/run.sh
+pre_exec_debug: "Checking recent events..."
+assert_exit_status:
+  - 0
+  - 110
+  - 120
+post_exec_success_debug: "Events check completed"
+post_exec_fail_debug:
+  130: "Many critical error events found"
+  120: "Error events detected"
+  110: "Multiple warning events found"

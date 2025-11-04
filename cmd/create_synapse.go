@@ -17,8 +17,11 @@ package cmd
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
 
 	"github.com/spf13/cobra"
+	"gopkg.in/yaml.v2"
 )
 
 // createSynapseCmd represents the createSynapse command
@@ -27,21 +30,51 @@ var createSynapseCmd = &cobra.Command{
 	Short:   "Bootstrap a new synapse folder",
 	Long:    `Bootstrap a new synapse folder with config and file structure`,
 	Aliases: []string{"cs"},
+	Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("createSynapse called")
+		synapseName := args[0]
+		createSynapse(synapseName)
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(createSynapseCmd)
+}
 
-	// Here you will define your flags and configuration settings.
+func createSynapse(name string) {
+	// Create synapse directory
+	if err := os.MkdirAll(name, 0755); err != nil {
+		fmt.Printf("Error creating synapse directory: %v\n", err)
+		os.Exit(1)
+	}
 
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// createSynapseCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// Create synapse.yaml
+	synapseConfig := map[string]interface{}{
+		"name":       name,
+		"definition": []map[string]interface{}{},
+		"plan": map[string]interface{}{
+			"config": map[string]interface{}{
+				"exit_on_first_error": false,
+			},
+			"steps": map[string]interface{}{
+				"serial":   []string{},
+				"parallel": []string{},
+			},
+		},
+	}
 
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// createSynapseCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	yamlData, err := yaml.Marshal(synapseConfig)
+	if err != nil {
+		fmt.Printf("Error marshaling synapse config: %v\n", err)
+		os.Exit(1)
+	}
+
+	configPath := filepath.Join(name, "synapse.yaml")
+	if err := os.WriteFile(configPath, yamlData, 0644); err != nil {
+		fmt.Printf("Error writing synapse.yaml: %v\n", err)
+		os.Exit(1)
+	}
+
+	fmt.Printf("✓ Created synapse '%s'\n", name)
+	fmt.Printf("  - %s/synapse.yaml\n", name)
 }

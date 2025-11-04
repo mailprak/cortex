@@ -1,0 +1,25 @@
+name: k8s_cluster_health
+definition:
+  - neuron: check_pod_status
+    config:
+      path: /workspaces/cortex/example/k8s/check_pod_status
+      fix:
+        130: mutate_restart_pod
+  - neuron: check_node_resources
+    config:
+      path: /workspaces/cortex/example/k8s/check_node_resources
+  - neuron: check_recent_events
+    config:
+      path: /workspaces/cortex/example/k8s/check_recent_events
+  - neuron: mutate_restart_pod
+    config:
+      path: /workspaces/cortex/example/k8s/mutate_restart_pod
+plan:
+  config:
+    exit_on_first_error: false
+  steps:
+    serial:
+      - check_node_resources
+      - check_pod_status
+      - check_recent_events
+    parallel: []

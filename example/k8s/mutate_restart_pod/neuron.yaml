@@ -1,0 +1,10 @@
+assert_exit_status:
+- 0
+description: Description for mutate_restart_pod
+exec_file: ./run.sh
+name: mutate_restart_pod
+post_exec_fail_debug:
+  1: Execution failed
+post_exec_success_debug: mutate_restart_pod completed successfully
+pre_exec_debug: Executing mutate_restart_pod
+type: mutate

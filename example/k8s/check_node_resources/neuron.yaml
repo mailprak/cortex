@@ -1,0 +1,14 @@
+name: check_node_resources
+type: check
+description: "Check Kubernetes node CPU and memory resources"
+exec_file: /workspaces/cortex/example/k8s/check_node_resources/run.sh
+pre_exec_debug: "Checking node resources..."
+assert_exit_status:
+  - 0
+  - 110
+  - 120
+post_exec_success_debug: "Node resources check completed"
+post_exec_fail_debug:
+  130: "Nodes not ready - critical issue"
+  120: "High resource usage detected"
+  110: "metrics-server not available"
