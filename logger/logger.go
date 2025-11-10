@@ -105,7 +105,7 @@ func (l *StandardLogger) Error(err error, message string) {
 }
 
 func (l *StandardLogger) Errorf(err error, message string, args ...interface{}) {
-	l.baseLogger.Error().Str("status", "error").Err(err).Msgf(message, args)
+	l.baseLogger.Error().Str("status", "error").Err(err).Msgf(message, args...)
 }
 
 func (l *StandardLogger) Fatal(err error, message string) {
@@ -113,7 +113,7 @@ func (l *StandardLogger) Fatal(err error, message string) {
 }
 
 func (l *StandardLogger) Fatalf(err error, message string, args ...interface{}) {
-	l.baseLogger.Fatal().Str("status", "fatal").Err(err).Msgf(message, args)
+	l.baseLogger.Fatal().Str("status", "fatal").Err(err).Msgf(message, args...)
 }
 
 func (l *StandardLogger) WithContext(key, value string) {

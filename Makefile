@@ -76,9 +76,9 @@ install-deps: ## Install Ginkgo v2, Gomega, Playwright
 	$(GO) install github.com/onsi/ginkgo/v2/ginkgo@latest
 	$(GO) get -u github.com/onsi/ginkgo/v2
 	$(GO) get -u github.com/onsi/gomega
-	@echo "$(GREEN)Installing Playwright for E2E tests...$(NC)"
+	@echo "$(GREEN)Installing Playwright (Chromium only) for E2E tests...$(NC)"
 	@if [ -d "acceptance/web-ui" ]; then \
-		cd acceptance/web-ui && npm install && $(PLAYWRIGHT) install --with-deps; \
+		cd acceptance/web-ui && npm install && $(PLAYWRIGHT) install chromium --with-deps; \
 	fi
 	@echo "$(GREEN)All dependencies installed!$(NC)"
 

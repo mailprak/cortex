@@ -1,0 +1,2895 @@
+{
+  "config": {
+    "configFile": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/playwright.config.ts",
+    "rootDir": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 7
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "test-results/junit.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "Mobile Safari",
+        "name": "Mobile Safari",
+        "testDir": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 7,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "dashboard.spec.ts",
+      "file": "dashboard.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Dashboard",
+          "file": "dashboard.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should load in under 2 seconds",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Dashboard not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 15,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 20566,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:24.733Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Dashboard not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 15,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-14a42da45d6d30e79a14",
+              "file": "dashboard.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "should display neuron library",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Neuron library not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 26,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 2113,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:23.202Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Neuron library not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 26,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-45ae4b8f284d70b1775d",
+              "file": "dashboard.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "should display system metrics",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "System metrics not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 35,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 16605,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:25.389Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "System metrics not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 35,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-fff260599ffde7459a2a",
+              "file": "dashboard.spec.ts",
+              "line": 34,
+              "column": 7
+            },
+            {
+              "title": "should be responsive on mobile devices",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Mobile responsiveness not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 43,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "skipped",
+                      "duration": 9664,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:23.535Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Mobile responsiveness not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 43,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-ba43d95d9bd5230eb828",
+              "file": "dashboard.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "should load in under 2 seconds",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Dashboard not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 15,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 4,
+                      "status": "skipped",
+                      "duration": 1064,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:40.325Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Dashboard not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 15,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-3625cf0b94b52bfbe910",
+              "file": "dashboard.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "should display neuron library",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Neuron library not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 26,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 6,
+                      "status": "skipped",
+                      "duration": 1203,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:41.629Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Neuron library not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 26,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-25020f1fe00b6a14de17",
+              "file": "dashboard.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "should display system metrics",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "System metrics not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 35,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 5,
+                      "status": "skipped",
+                      "duration": 1182,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:43.243Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "System metrics not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 35,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-c49904ee97b2b88548eb",
+              "file": "dashboard.spec.ts",
+              "line": 34,
+              "column": 7
+            },
+            {
+              "title": "should be responsive on mobile devices",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Mobile responsiveness not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 43,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 4,
+                      "status": "skipped",
+                      "duration": 381,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:42.108Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Mobile responsiveness not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 43,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-fad4c446e10673b43216",
+              "file": "dashboard.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "should load in under 2 seconds",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 6,
+                      "status": "failed",
+                      "duration": 2,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:47.452Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-84f1c0d52420ed43097d",
+              "file": "dashboard.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "should display neuron library",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:48.209Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-bb24b7516a17f7d760f4",
+              "file": "dashboard.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "should display system metrics",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 2,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:46.116Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-a5b62f924b1509437028",
+              "file": "dashboard.spec.ts",
+              "line": 34,
+              "column": 7
+            },
+            {
+              "title": "should be responsive on mobile devices",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 5,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:50.998Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-b829f41826d1a701313c",
+              "file": "dashboard.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "should load in under 2 seconds",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Dashboard not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 15,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 4,
+                      "status": "skipped",
+                      "duration": 3971,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:49.349Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Dashboard not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 15,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-ea20a89de5a277389d3e",
+              "file": "dashboard.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "should display neuron library",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Neuron library not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 26,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 5818,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:49.580Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Neuron library not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 26,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-4d085af84ea29616c56b",
+              "file": "dashboard.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "should display system metrics",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "System metrics not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 35,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 11257,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:50.635Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "System metrics not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 35,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-4bc28b8d450e1dd41e90",
+              "file": "dashboard.spec.ts",
+              "line": 34,
+              "column": 7
+            },
+            {
+              "title": "should be responsive on mobile devices",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Mobile responsiveness not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 43,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 25,
+                      "parallelIndex": 6,
+                      "status": "skipped",
+                      "duration": 12405,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:51.283Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Mobile responsiveness not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 43,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-46bfcab5d2c1d0ab5e86",
+              "file": "dashboard.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "should load in under 2 seconds",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 29,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:31:03.430Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-5b4871f72d1d6b6e6c96",
+              "file": "dashboard.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "should display neuron library",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 30,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:31:04.034Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-a6d689a4c4fa1685b31e",
+              "file": "dashboard.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "should display system metrics",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 31,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:31:04.449Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-d4e6e5ffa1edbd6bc238",
+              "file": "dashboard.spec.ts",
+              "line": 34,
+              "column": 7
+            },
+            {
+              "title": "should be responsive on mobile devices",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 39,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:31:07.820Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-85bfafcd290880c8d052",
+              "file": "dashboard.spec.ts",
+              "line": 42,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Neuron Execution",
+          "file": "dashboard.spec.ts",
+          "line": 54,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should execute neuron and show real-time logs",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Real-time logs not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 56,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "skipped",
+                      "duration": 3863,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:23.887Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Real-time logs not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 56,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-974a4662ea17269719c0",
+              "file": "dashboard.spec.ts",
+              "line": 55,
+              "column": 7
+            },
+            {
+              "title": "should display execution status updates",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Status updates not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 73,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "skipped",
+                      "duration": 15236,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:24.321Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Status updates not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 73,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-01eeb7d112aeb5f8dcb2",
+              "file": "dashboard.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "should execute neuron and show real-time logs",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Real-time logs not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 56,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 4,
+                      "status": "skipped",
+                      "duration": 384,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:42.499Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Real-time logs not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 56,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-8280833ae3c165e979d3",
+              "file": "dashboard.spec.ts",
+              "line": 55,
+              "column": 7
+            },
+            {
+              "title": "should display execution status updates",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Status updates not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 73,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 4,
+                      "status": "skipped",
+                      "duration": 331,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:42.892Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Status updates not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 73,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-9d9d6f920c30b3ed4481",
+              "file": "dashboard.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "should execute neuron and show real-time logs",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 2,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:47.720Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-04426481c58a4d7b1244",
+              "file": "dashboard.spec.ts",
+              "line": 55,
+              "column": 7
+            },
+            {
+              "title": "should display execution status updates",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:47.864Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-c6f3ed59277c2a0dc7fa",
+              "file": "dashboard.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "should execute neuron and show real-time logs",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Real-time logs not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 56,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 26,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 11281,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:51.688Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Real-time logs not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 56,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-d76b1ef8e8e656892358",
+              "file": "dashboard.spec.ts",
+              "line": 55,
+              "column": 7
+            },
+            {
+              "title": "should display execution status updates",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Status updates not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 73,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 27,
+                      "parallelIndex": 5,
+                      "status": "skipped",
+                      "duration": 13100,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:52.495Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Status updates not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 73,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-9979dd2bbbb9c86370ea",
+              "file": "dashboard.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "should execute neuron and show real-time logs",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 32,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:31:04.770Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-82d9add263c51caf19cc",
+              "file": "dashboard.spec.ts",
+              "line": 55,
+              "column": 7
+            },
+            {
+              "title": "should display execution status updates",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 33,
+                      "parallelIndex": 6,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:31:05.201Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-de510a79e67974118015",
+              "file": "dashboard.spec.ts",
+              "line": 72,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Visual Synapse Builder",
+          "file": "dashboard.spec.ts",
+          "line": 87,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should allow drag-and-drop neuron placement",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Synapse builder not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 89,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 6,
+                      "status": "skipped",
+                      "duration": 8493,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:25.901Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Synapse builder not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 89,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-733977365aef93c67feb",
+              "file": "dashboard.spec.ts",
+              "line": 88,
+              "column": 7
+            },
+            {
+              "title": "should save synapse configuration",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Synapse save not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 104,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 17133,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:26.003Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Synapse save not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 104,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-b7951f7a9586764b275b",
+              "file": "dashboard.spec.ts",
+              "line": 103,
+              "column": 7
+            },
+            {
+              "title": "should allow drag-and-drop neuron placement",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Synapse builder not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 89,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 1069,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:44.980Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Synapse builder not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 89,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-6fca3814c6f00c64cf75",
+              "file": "dashboard.spec.ts",
+              "line": 88,
+              "column": 7
+            },
+            {
+              "title": "should save synapse configuration",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Synapse save not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 104,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 4,
+                      "status": "skipped",
+                      "duration": 324,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:43.236Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Synapse save not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 104,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-af3591193daadabd465c",
+              "file": "dashboard.spec.ts",
+              "line": 103,
+              "column": 7
+            },
+            {
+              "title": "should allow drag-and-drop neuron placement",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:48.749Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-072626ef0afc5ae067c6",
+              "file": "dashboard.spec.ts",
+              "line": 88,
+              "column": 7
+            },
+            {
+              "title": "should save synapse configuration",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 6,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:49.873Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-e75c53465f41c886f48f",
+              "file": "dashboard.spec.ts",
+              "line": 103,
+              "column": 7
+            },
+            {
+              "title": "should allow drag-and-drop neuron placement",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Synapse builder not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 89,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 28,
+                      "parallelIndex": 3,
+                      "status": "skipped",
+                      "duration": 9365,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:52.830Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Synapse builder not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 89,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-26bf06dcbe1b6a496a09",
+              "file": "dashboard.spec.ts",
+              "line": 88,
+              "column": 7
+            },
+            {
+              "title": "should save synapse configuration",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Synapse save not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 104,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 4,
+                      "status": "skipped",
+                      "duration": 10576,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:54.044Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Synapse save not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 104,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-a0ce44d0fec7d1abf095",
+              "file": "dashboard.spec.ts",
+              "line": 103,
+              "column": 7
+            },
+            {
+              "title": "should allow drag-and-drop neuron placement",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 34,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:31:05.728Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-e6c2107caae14432f18b",
+              "file": "dashboard.spec.ts",
+              "line": 88,
+              "column": 7
+            },
+            {
+              "title": "should save synapse configuration",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 35,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:31:06.230Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-678e29f9fba92e777773",
+              "file": "dashboard.spec.ts",
+              "line": 103,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Accessibility",
+          "file": "dashboard.spec.ts",
+          "line": 116,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should have proper ARIA labels",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "ARIA labels not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 118,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "skipped",
+                      "duration": 9818,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:29.059Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "ARIA labels not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 118,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-a0ddc94c92cc3d26b660",
+              "file": "dashboard.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "should support keyboard navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Keyboard navigation not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 127,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "skipped",
+                      "duration": 11618,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:34.118Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Keyboard navigation not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 127,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-ddc8c365eba8dac82e99",
+              "file": "dashboard.spec.ts",
+              "line": 126,
+              "column": 7
+            },
+            {
+              "title": "should have proper ARIA labels",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "ARIA labels not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 118,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 4,
+                      "status": "skipped",
+                      "duration": 405,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:43.571Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "ARIA labels not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 118,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-a0789bb2617e6b29e3c7",
+              "file": "dashboard.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "should support keyboard navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Keyboard navigation not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 127,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 6,
+                      "status": "skipped",
+                      "duration": 387,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:43.599Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Keyboard navigation not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 127,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-b1cb92b3899751f2f7b3",
+              "file": "dashboard.spec.ts",
+              "line": 126,
+              "column": 7
+            },
+            {
+              "title": "should have proper ARIA labels",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:52.041Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-ee4fbe8c54e1004c01cd",
+              "file": "dashboard.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "should support keyboard navigation",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:50.301Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-a286e44946085a531e3c",
+              "file": "dashboard.spec.ts",
+              "line": 126,
+              "column": 7
+            },
+            {
+              "title": "should have proper ARIA labels",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "ARIA labels not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 118,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 2060,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:56.392Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "ARIA labels not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 118,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-52ebe0a4c6770508bd99",
+              "file": "dashboard.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "should support keyboard navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Keyboard navigation not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 127,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 3344,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:58.459Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Keyboard navigation not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 127,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-3fb7eda491833d03a047",
+              "file": "dashboard.spec.ts",
+              "line": 126,
+              "column": 7
+            },
+            {
+              "title": "should have proper ARIA labels",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 36,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:31:08.531Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-4fe1ee4cff3460875733",
+              "file": "dashboard.spec.ts",
+              "line": 117,
+              "column": 7
+            },
+            {
+              "title": "should support keyboard navigation",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 37,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 2,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:31:07.202Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-e5b615617241f198b3cf",
+              "file": "dashboard.spec.ts",
+              "line": 126,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "WebSocket Performance",
+          "file": "dashboard.spec.ts",
+          "line": 138,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should maintain latency under 100ms",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "WebSocket not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 140,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 6,
+                      "status": "skipped",
+                      "duration": 2922,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:37.202Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "WebSocket not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 140,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-ef8a853394ec2f043544",
+              "file": "dashboard.spec.ts",
+              "line": 139,
+              "column": 7
+            },
+            {
+              "title": "should maintain latency under 100ms",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "WebSocket not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 140,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 4,
+                      "status": "skipped",
+                      "duration": 356,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:43.984Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "WebSocket not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 140,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-d8b242241d97de077365",
+              "file": "dashboard.spec.ts",
+              "line": 139,
+              "column": 7
+            },
+            {
+              "title": "should maintain latency under 100ms",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 21,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:30:48.962Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-d437778145f8d70ca767",
+              "file": "dashboard.spec.ts",
+              "line": 139,
+              "column": 7
+            },
+            {
+              "title": "should maintain latency under 100ms",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "WebSocket not yet implemented - TDD RED phase",
+                      "location": {
+                        "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                        "line": 140,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 3228,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:31:01.808Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "WebSocket not yet implemented - TDD RED phase",
+                          "location": {
+                            "file": "/Users/agopalakrishnan/workspace/oss/cortex/acceptance/web-ui/tests/dashboard.spec.ts",
+                            "line": 140,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-7e93af7e5247ef294269",
+              "file": "dashboard.spec.ts",
+              "line": 139,
+              "column": 7
+            },
+            {
+              "title": "should maintain latency under 100ms",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 38,
+                      "parallelIndex": 6,
+                      "status": "failed",
+                      "duration": 1,
+                      "error": {
+                        "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+                        "stack": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-10T16:31:06.676Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "90cda532ab82d274b30b-e87e89c2dce41bd0d09e",
+              "file": "dashboard.spec.ts",
+              "line": 139,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-11-10T16:30:22.068Z",
+    "duration": 46495.137,
+    "expected": 0,
+    "skipped": 33,
+    "unexpected": 22,
+    "flaky": 0
+  }
+}

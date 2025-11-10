@@ -75,6 +75,7 @@ func createSynapse(name string) {
 		os.Exit(1)
 	}
 
+	fmt.Println("Bootstrap a new synapse folder with config and file structure")
 	fmt.Printf("✓ Created synapse '%s'\n", name)
 	fmt.Printf("  - %s/synapse.yaml\n", name)
 }

@@ -1,0 +1,628 @@
+<testsuites id="" name="" tests="55" failures="22" skipped="33" errors="0" time="46.495137">
+<testsuite name="dashboard.spec.ts" timestamp="2025-11-10T16:30:22.080Z" hostname="chromium" tests="11" failures="0" skipped="11" time="118.031" errors="0">
+<testcase name="Dashboard › should load in under 2 seconds" classname="dashboard.spec.ts" time="20.566">
+<properties>
+<property name="skip" value="Dashboard not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard › should display neuron library" classname="dashboard.spec.ts" time="2.113">
+<properties>
+<property name="skip" value="Neuron library not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard › should display system metrics" classname="dashboard.spec.ts" time="16.605">
+<properties>
+<property name="skip" value="System metrics not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard › should be responsive on mobile devices" classname="dashboard.spec.ts" time="9.664">
+<properties>
+<property name="skip" value="Mobile responsiveness not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Neuron Execution › should execute neuron and show real-time logs" classname="dashboard.spec.ts" time="3.863">
+<properties>
+<property name="skip" value="Real-time logs not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Neuron Execution › should display execution status updates" classname="dashboard.spec.ts" time="15.236">
+<properties>
+<property name="skip" value="Status updates not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Visual Synapse Builder › should allow drag-and-drop neuron placement" classname="dashboard.spec.ts" time="8.493">
+<properties>
+<property name="skip" value="Synapse builder not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Visual Synapse Builder › should save synapse configuration" classname="dashboard.spec.ts" time="17.133">
+<properties>
+<property name="skip" value="Synapse save not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Accessibility › should have proper ARIA labels" classname="dashboard.spec.ts" time="9.818">
+<properties>
+<property name="skip" value="ARIA labels not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Accessibility › should support keyboard navigation" classname="dashboard.spec.ts" time="11.618">
+<properties>
+<property name="skip" value="Keyboard navigation not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="WebSocket Performance › should maintain latency under 100ms" classname="dashboard.spec.ts" time="2.922">
+<properties>
+<property name="skip" value="WebSocket not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="dashboard.spec.ts" timestamp="2025-11-10T16:30:22.080Z" hostname="firefox" tests="11" failures="0" skipped="11" time="7.086" errors="0">
+<testcase name="Dashboard › should load in under 2 seconds" classname="dashboard.spec.ts" time="1.064">
+<properties>
+<property name="skip" value="Dashboard not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard › should display neuron library" classname="dashboard.spec.ts" time="1.203">
+<properties>
+<property name="skip" value="Neuron library not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard › should display system metrics" classname="dashboard.spec.ts" time="1.182">
+<properties>
+<property name="skip" value="System metrics not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard › should be responsive on mobile devices" classname="dashboard.spec.ts" time="0.381">
+<properties>
+<property name="skip" value="Mobile responsiveness not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Neuron Execution › should execute neuron and show real-time logs" classname="dashboard.spec.ts" time="0.384">
+<properties>
+<property name="skip" value="Real-time logs not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Neuron Execution › should display execution status updates" classname="dashboard.spec.ts" time="0.331">
+<properties>
+<property name="skip" value="Status updates not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Visual Synapse Builder › should allow drag-and-drop neuron placement" classname="dashboard.spec.ts" time="1.069">
+<properties>
+<property name="skip" value="Synapse builder not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Visual Synapse Builder › should save synapse configuration" classname="dashboard.spec.ts" time="0.324">
+<properties>
+<property name="skip" value="Synapse save not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Accessibility › should have proper ARIA labels" classname="dashboard.spec.ts" time="0.405">
+<properties>
+<property name="skip" value="ARIA labels not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Accessibility › should support keyboard navigation" classname="dashboard.spec.ts" time="0.387">
+<properties>
+<property name="skip" value="Keyboard navigation not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="WebSocket Performance › should maintain latency under 100ms" classname="dashboard.spec.ts" time="0.356">
+<properties>
+<property name="skip" value="WebSocket not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="dashboard.spec.ts" timestamp="2025-11-10T16:30:22.080Z" hostname="webkit" tests="11" failures="11" skipped="0" time="0.014" errors="0">
+<testcase name="Dashboard › should load in under 2 seconds" classname="dashboard.spec.ts" time="0.002">
+<failure message="dashboard.spec.ts:14:7 should load in under 2 seconds" type="FAILURE">
+<![CDATA[  [webkit] › dashboard.spec.ts:14:7 › Dashboard › should load in under 2 seconds ───────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Dashboard › should display neuron library" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:25:7 should display neuron library" type="FAILURE">
+<![CDATA[  [webkit] › dashboard.spec.ts:25:7 › Dashboard › should display neuron library ────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Dashboard › should display system metrics" classname="dashboard.spec.ts" time="0.002">
+<failure message="dashboard.spec.ts:34:7 should display system metrics" type="FAILURE">
+<![CDATA[  [webkit] › dashboard.spec.ts:34:7 › Dashboard › should display system metrics ────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Dashboard › should be responsive on mobile devices" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:42:7 should be responsive on mobile devices" type="FAILURE">
+<![CDATA[  [webkit] › dashboard.spec.ts:42:7 › Dashboard › should be responsive on mobile devices ───────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Neuron Execution › should execute neuron and show real-time logs" classname="dashboard.spec.ts" time="0.002">
+<failure message="dashboard.spec.ts:55:7 should execute neuron and show real-time logs" type="FAILURE">
+<![CDATA[  [webkit] › dashboard.spec.ts:55:7 › Neuron Execution › should execute neuron and show real-time logs 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Neuron Execution › should display execution status updates" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:72:7 should display execution status updates" type="FAILURE">
+<![CDATA[  [webkit] › dashboard.spec.ts:72:7 › Neuron Execution › should display execution status updates ───
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Visual Synapse Builder › should allow drag-and-drop neuron placement" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:88:7 should allow drag-and-drop neuron placement" type="FAILURE">
+<![CDATA[  [webkit] › dashboard.spec.ts:88:7 › Visual Synapse Builder › should allow drag-and-drop neuron placement 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Visual Synapse Builder › should save synapse configuration" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:103:7 should save synapse configuration" type="FAILURE">
+<![CDATA[  [webkit] › dashboard.spec.ts:103:7 › Visual Synapse Builder › should save synapse configuration ──
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Accessibility › should have proper ARIA labels" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:117:7 should have proper ARIA labels" type="FAILURE">
+<![CDATA[  [webkit] › dashboard.spec.ts:117:7 › Accessibility › should have proper ARIA labels ──────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Accessibility › should support keyboard navigation" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:126:7 should support keyboard navigation" type="FAILURE">
+<![CDATA[  [webkit] › dashboard.spec.ts:126:7 › Accessibility › should support keyboard navigation ──────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="WebSocket Performance › should maintain latency under 100ms" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:139:7 should maintain latency under 100ms" type="FAILURE">
+<![CDATA[  [webkit] › dashboard.spec.ts:139:7 › WebSocket Performance › should maintain latency under 100ms ─
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="dashboard.spec.ts" timestamp="2025-11-10T16:30:22.080Z" hostname="Mobile Chrome" tests="11" failures="0" skipped="11" time="86.405" errors="0">
+<testcase name="Dashboard › should load in under 2 seconds" classname="dashboard.spec.ts" time="3.971">
+<properties>
+<property name="skip" value="Dashboard not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard › should display neuron library" classname="dashboard.spec.ts" time="5.818">
+<properties>
+<property name="skip" value="Neuron library not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard › should display system metrics" classname="dashboard.spec.ts" time="11.257">
+<properties>
+<property name="skip" value="System metrics not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard › should be responsive on mobile devices" classname="dashboard.spec.ts" time="12.405">
+<properties>
+<property name="skip" value="Mobile responsiveness not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Neuron Execution › should execute neuron and show real-time logs" classname="dashboard.spec.ts" time="11.281">
+<properties>
+<property name="skip" value="Real-time logs not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Neuron Execution › should display execution status updates" classname="dashboard.spec.ts" time="13.1">
+<properties>
+<property name="skip" value="Status updates not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Visual Synapse Builder › should allow drag-and-drop neuron placement" classname="dashboard.spec.ts" time="9.365">
+<properties>
+<property name="skip" value="Synapse builder not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Visual Synapse Builder › should save synapse configuration" classname="dashboard.spec.ts" time="10.576">
+<properties>
+<property name="skip" value="Synapse save not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Accessibility › should have proper ARIA labels" classname="dashboard.spec.ts" time="2.06">
+<properties>
+<property name="skip" value="ARIA labels not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Accessibility › should support keyboard navigation" classname="dashboard.spec.ts" time="3.344">
+<properties>
+<property name="skip" value="Keyboard navigation not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="WebSocket Performance › should maintain latency under 100ms" classname="dashboard.spec.ts" time="3.228">
+<properties>
+<property name="skip" value="WebSocket not yet implemented - TDD RED phase">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="dashboard.spec.ts" timestamp="2025-11-10T16:30:22.080Z" hostname="Mobile Safari" tests="11" failures="11" skipped="0" time="0.012" errors="0">
+<testcase name="Dashboard › should load in under 2 seconds" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:14:7 should load in under 2 seconds" type="FAILURE">
+<![CDATA[  [Mobile Safari] › dashboard.spec.ts:14:7 › Dashboard › should load in under 2 seconds ────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Dashboard › should display neuron library" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:25:7 should display neuron library" type="FAILURE">
+<![CDATA[  [Mobile Safari] › dashboard.spec.ts:25:7 › Dashboard › should display neuron library ─────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Dashboard › should display system metrics" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:34:7 should display system metrics" type="FAILURE">
+<![CDATA[  [Mobile Safari] › dashboard.spec.ts:34:7 › Dashboard › should display system metrics ─────────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Dashboard › should be responsive on mobile devices" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:42:7 should be responsive on mobile devices" type="FAILURE">
+<![CDATA[  [Mobile Safari] › dashboard.spec.ts:42:7 › Dashboard › should be responsive on mobile devices ────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Neuron Execution › should execute neuron and show real-time logs" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:55:7 should execute neuron and show real-time logs" type="FAILURE">
+<![CDATA[  [Mobile Safari] › dashboard.spec.ts:55:7 › Neuron Execution › should execute neuron and show real-time logs 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Neuron Execution › should display execution status updates" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:72:7 should display execution status updates" type="FAILURE">
+<![CDATA[  [Mobile Safari] › dashboard.spec.ts:72:7 › Neuron Execution › should display execution status updates 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Visual Synapse Builder › should allow drag-and-drop neuron placement" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:88:7 should allow drag-and-drop neuron placement" type="FAILURE">
+<![CDATA[  [Mobile Safari] › dashboard.spec.ts:88:7 › Visual Synapse Builder › should allow drag-and-drop neuron placement 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Visual Synapse Builder › should save synapse configuration" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:103:7 should save synapse configuration" type="FAILURE">
+<![CDATA[  [Mobile Safari] › dashboard.spec.ts:103:7 › Visual Synapse Builder › should save synapse configuration 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Accessibility › should have proper ARIA labels" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:117:7 should have proper ARIA labels" type="FAILURE">
+<![CDATA[  [Mobile Safari] › dashboard.spec.ts:117:7 › Accessibility › should have proper ARIA labels ───────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="Accessibility › should support keyboard navigation" classname="dashboard.spec.ts" time="0.002">
+<failure message="dashboard.spec.ts:126:7 should support keyboard navigation" type="FAILURE">
+<![CDATA[  [Mobile Safari] › dashboard.spec.ts:126:7 › Accessibility › should support keyboard navigation ───
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+<testcase name="WebSocket Performance › should maintain latency under 100ms" classname="dashboard.spec.ts" time="0.001">
+<failure message="dashboard.spec.ts:139:7 should maintain latency under 100ms" type="FAILURE">
+<![CDATA[  [Mobile Safari] › dashboard.spec.ts:139:7 › WebSocket Performance › should maintain latency under 100ms 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/agopalakrishnan/Library/Caches/ms-playwright/webkit-2215/pw_run.sh
+    ╔═════════════════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+    ║ Please run the following command to download new browsers:              ║
+    ║                                                                         ║
+    ║     npx playwright install                                              ║
+    ║                                                                         ║
+    ║ <3 Playwright Team                                                      ║
+    ╚═════════════════════════════════════════════════════════════════════════╝
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>
