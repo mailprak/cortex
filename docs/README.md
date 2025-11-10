@@ -11,13 +11,12 @@ docs/
 ├── TESTING.md                   # Testing guide (TDD with Ginkgo/Playwright)
 ├── guides/                      # User and contributor guides
 │   ├── getting-started.md       # Quick start guide
-│   ├── user-guide.md            # Complete user documentation
 │   └── contributing.md          # How to contribute to Cortex
 ├── architecture/                # System architecture and design
 │   ├── overview.md              # High-level architecture
 │   ├── ai-neuron-generation.md  # AI generation system design
 │   └── web-ui.md                # Web UI architecture
-└── specs/                       # Technical specifications
+└── specs/                       # Technical specifications (detailed design docs)
     ├── ai-neuron-generation.md  # AI feature spec
     └── web-ui-specification.md  # Web UI spec
 ```
