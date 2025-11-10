@@ -1,10 +1,20 @@
-.PHONY: help build build-local docker-build docker-run docker-shell clean test install
+.PHONY: help build build-local docker-build docker-run docker-shell clean test test-acceptance test-acceptance-cli test-acceptance-web test-unit test-all coverage watch install-deps upgrade-deps install
 
 # Variables
 BINARY_NAME=cortex
 DOCKER_IMAGE=cortex
 DOCKER_TAG=latest
 GO=go
+GINKGO=ginkgo
+PLAYWRIGHT=npx playwright
+COVERAGE_DIR=coverage
+COVERAGE_THRESHOLD=90
+
+# Colors for output
+GREEN := \033[0;32m
+YELLOW := \033[0;33m
+RED := \033[0;31m
+NC := \033[0m # No Color
 
 help: ## Show this help message
 	@echo 'Usage: make [target]'
@@ -48,13 +58,84 @@ docker-system-example: ## Run system health check example in Docker
 		$(DOCKER_IMAGE):$(DOCKER_TAG) \
 		cortex exec -p /cortex/example/system_health_check
 
-clean: ## Clean built binaries
+clean: ## Clean built binaries and test artifacts
 	rm -f $(BINARY_NAME)
+	rm -rf $(COVERAGE_DIR)
+	find . -name "*.test" -type f -delete
+	find . -name "*.out" -type f -delete
+	@if [ -d "acceptance/web-ui" ]; then \
+		cd acceptance/web-ui && rm -rf test-results playwright-report; \
+	fi
 	docker rmi $(DOCKER_IMAGE):$(DOCKER_TAG) 2>/dev/null || true
 	@echo "✓ Cleaned"
 
-test: ## Run tests
-	$(GO) test -v ./...
+## Testing Targets (TDD with Ginkgo v2 + Gomega + Playwright)
+
+install-deps: ## Install Ginkgo v2, Gomega, Playwright
+	@echo "$(GREEN)Installing Go testing dependencies...$(NC)"
+	$(GO) install github.com/onsi/ginkgo/v2/ginkgo@latest
+	$(GO) get -u github.com/onsi/ginkgo/v2
+	$(GO) get -u github.com/onsi/gomega
+	@echo "$(GREEN)Installing Playwright for E2E tests...$(NC)"
+	@if [ -d "acceptance/web-ui" ]; then \
+		cd acceptance/web-ui && npm install && $(PLAYWRIGHT) install --with-deps; \
+	fi
+	@echo "$(GREEN)All dependencies installed!$(NC)"
+
+upgrade-deps: ## Upgrade Ginkgo and Gomega to v2
+	@echo "$(GREEN)Upgrading Ginkgo and Gomega to v2...$(NC)"
+	$(GO) get -u github.com/onsi/ginkgo/v2
+	$(GO) get -u github.com/onsi/gomega
+	$(GO) mod tidy
+	@echo "$(GREEN)Dependencies upgraded!$(NC)"
+
+test-acceptance-cli: ## Run CLI acceptance tests (outer loop TDD)
+	@echo "$(GREEN)Running CLI acceptance tests...$(NC)"
+	@if ! command -v $(GINKGO) > /dev/null; then \
+		echo "$(RED)Ginkgo not found. Run 'make install-deps'$(NC)"; \
+		exit 1; \
+	fi
+	@mkdir -p $(COVERAGE_DIR)
+	$(GINKGO) -r -v --race --trace --label-filter="acceptance" ./acceptance/cli/
+	@echo "$(GREEN)CLI acceptance tests completed!$(NC)"
+
+test-acceptance-web: ## Run Web UI E2E tests with Playwright
+	@echo "$(GREEN)Running Web UI E2E tests...$(NC)"
+	@if [ -d "acceptance/web-ui" ] && [ -f "acceptance/web-ui/package.json" ]; then \
+		cd acceptance/web-ui && $(PLAYWRIGHT) test; \
+		echo "$(GREEN)Web UI E2E tests completed!$(NC)"; \
+	else \
+		echo "$(YELLOW)Web UI tests not set up. Skipping.$(NC)"; \
+	fi
+
+test-acceptance: test-acceptance-cli test-acceptance-web ## Run ALL acceptance tests
+	@echo "$(GREEN)All acceptance tests completed!$(NC)"
+
+test-unit: ## Run unit tests (inner loop TDD)
+	@echo "$(GREEN)Running unit tests...$(NC)"
+	@if ! command -v $(GINKGO) > /dev/null; then \
+		echo "$(RED)Ginkgo not found. Run 'make install-deps'$(NC)"; \
+		exit 1; \
+	fi
+	@mkdir -p $(COVERAGE_DIR)
+	$(GINKGO) -r -v --race --trace ./internal/
+	@echo "$(GREEN)Unit tests completed!$(NC)"
+
+test-all: test-unit test-acceptance ## Run ALL tests (unit + acceptance)
+	@echo "$(GREEN)All tests completed successfully!$(NC)"
+
+test: test-all ## Alias for test-all
+
+coverage: ## Generate test coverage report
+	@echo "$(GREEN)Generating coverage report...$(NC)"
+	@mkdir -p $(COVERAGE_DIR)
+	$(GO) test -v -race -coverprofile=$(COVERAGE_DIR)/coverage.out -covermode=atomic ./...
+	$(GO) tool cover -html=$(COVERAGE_DIR)/coverage.out -o $(COVERAGE_DIR)/coverage.html
+	@echo "$(GREEN)Coverage report: $(COVERAGE_DIR)/coverage.html$(NC)"
+
+watch: ## Run tests in watch mode (TDD workflow)
+	@echo "$(GREEN)Starting TDD watch mode...$(NC)"
+	$(GINKGO) watch -r -v --race
 
 install: build-local ## Install cortex to /usr/local/bin (requires sudo)
 	sudo mv $(BINARY_NAME) /usr/local/bin/
