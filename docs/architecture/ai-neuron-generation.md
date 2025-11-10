@@ -53,7 +53,7 @@ AI-powered neuron generation that converts natural language descriptions into pr
 
 **Target Workflow:**
 ```bash
-cortex generate neuron "Check if disk space is above 80% and send Slack alert"
+cortex generate neuron "Find which process is using port 8080 and show full command with PID"
 # → AI generates complete neuron in < 5 seconds
 # → User reviews, tweaks if needed, done
 Time: 30 seconds to 2 minutes
@@ -171,24 +171,30 @@ pkg/
 cortex generate neuron "description"
 cortex gen neuron "description"  # alias
 
-# With options
-cortex generate neuron "check disk space" \
+# Realistic examples - solving real debugging problems
+cortex generate neuron "Find which process is using port 8080 on localhost and show the full command with PID" \
   --language bash \
   --platform linux \
-  --context ./existing-neurons/ \
   --provider openai \
-  --model gpt-4 \
-  --output ./neurons/check_disk
+  --output ./neurons/check_port_8080
+
+cortex generate neuron "Check if PostgreSQL on port 5432 is accepting connections and can execute a simple query" \
+  --language bash \
+  --provider anthropic
+
+cortex generate neuron "Find all Kubernetes pods in CrashLoopBackOff state and show their last 50 log lines" \
+  --context ./existing-neurons/ \
+  --provider ollama
 
 # Interactive mode
 cortex generate neuron --interactive
 
 # From template with AI enhancement
 cortex generate neuron --template monitoring/disk \
-  --enhance "also check inode usage"
+  --enhance "also check inode usage and alert if over 90%"
 
 # Dry run (preview only)
-cortex generate neuron "description" --dry-run
+cortex generate neuron "Check disk usage on all mounts and alert if any exceeds 80%" --dry-run
 ```
 
 #### Interactive Prompts
@@ -199,7 +205,7 @@ $ cortex generate neuron --interactive
 🤖 Cortex AI Neuron Generator
 
 What should this neuron do?
-> Check if PostgreSQL replication lag is under 5 seconds
+> Find which process is using port 8080 on localhost and show the full command with PID
 
 Which execution environment?
 [1] Bash (Linux/macOS)
@@ -216,23 +222,22 @@ Should this neuron mutate anything? (check vs mutate)
 Generate tests automatically? [Y/n] y
 
 Analyzing requirements...
-✓ Detected: PostgreSQL, monitoring, replication
-✓ Found 3 similar neurons in community
-✓ Generating code...
+✓ Detected: port checking, process monitoring, network diagnostics
+✓ Found 2 similar neurons in community (check_port, list_processes)
+✓ Generating code with lsof and ps commands...
 
-Generated neuron: check_postgres_replication_lag
+Generated neuron: check_port_8080_process
 
 📁 Files created:
-  - neurons/check_postgres_replication_lag/neuron.yaml
-  - neurons/check_postgres_replication_lag/run.sh
-  - neurons/check_postgres_replication_lag/README.md
-  - neurons/check_postgres_replication_lag/run_test.sh
+  - neurons/check_port_8080_process/neuron.yaml
+  - neurons/check_port_8080_process/run.sh
+  - neurons/check_port_8080_process/README.md
+  - neurons/check_port_8080_process/run_test.sh
 
 📝 Summary:
-  - Exit Code 0: Replication lag OK (< 5s)
-  - Exit Code 120: Replication lag warning (5-10s)
-  - Exit Code 121: Replication lag critical (> 10s)
-  - Exit Code 122: PostgreSQL not reachable
+  - Exit Code 0: Process found and details displayed
+  - Exit Code 120: No process using port 8080
+  - Exit Code 121: lsof command not available
 
 Review and test? [Y/n] y
 ```
@@ -610,17 +615,19 @@ OPTIONS:
   --config PATH            Custom AI config file [default: ~/.cortex/ai.yaml]
 
 EXAMPLES:
-  # Basic usage
-  cortex generate neuron "check if disk usage is above 80%"
+  # Real debugging scenarios
+  cortex generate neuron "Find which process is using port 3000 and show full details with PID"
 
-  # With specific language
-  cortex gen neuron "restart apache service" --language bash --type mutate
+  # Complex multi-step checks
+  cortex gen neuron "Check if PostgreSQL replication lag is under 5 seconds and accepting connections" \
+    --language bash --provider anthropic
 
-  # Using local Ollama
-  cortex gen neuron "check PostgreSQL replication" --provider ollama --model llama2
+  # Kubernetes troubleshooting
+  cortex gen neuron "Find all pods consuming more than 80% of their memory limits" \
+    --provider ollama --model llama2
 
   # Preview before creating
-  cortex gen neuron "check API health" --dry-run
+  cortex gen neuron "Check disk usage on all mounts and list top 10 largest directories" --dry-run
 ```
 
 ### Configuration File
@@ -955,33 +962,35 @@ set -euo pipefail
 
 echo "=== Acceptance Test: AI Neuron Generation ==="
 
-# Test 1: Basic generation
-echo "Test 1: Generate simple check neuron"
-cortex generate neuron "check if port 8080 is open" \
-    --output /tmp/test-neuron \
+# Test 1: Real-world debugging scenario
+echo "Test 1: Generate process port-checking neuron"
+cortex generate neuron "Find which process is using port 8080 and show the full command with PID" \
+    --output /tmp/test-port-check \
     --dry-run > /tmp/gen-output.txt
 
 grep -q "neuron.yaml" /tmp/gen-output.txt || exit 1
+grep -q "lsof\|netstat" /tmp/gen-output.txt || exit 1
 echo "✓ Test 1 passed"
 
-# Test 2: Interactive mode
+# Test 2: Interactive mode with realistic scenario
 echo "Test 2: Interactive generation"
-echo -e "check disk space\n1\n1\ny\nn\n" | cortex generate neuron --interactive
+echo -e "Check disk usage on all mounts and alert if any exceeds 80%\n1\n1\ny\nn\n" | cortex generate neuron --interactive
 echo "✓ Test 2 passed"
 
-# Test 3: Actual file creation
-echo "Test 3: Create real neuron"
-cortex generate neuron "check nginx status" --output /tmp/nginx-check
-test -f /tmp/nginx-check/neuron.yaml || exit 1
-test -f /tmp/nginx-check/run.sh || exit 1
-test -x /tmp/nginx-check/run.sh || exit 1
+# Test 3: Actual file creation with complex check
+echo "Test 3: Create PostgreSQL connection check neuron"
+cortex generate neuron "Check if PostgreSQL on port 5432 is accepting connections and can execute a simple query" \
+    --output /tmp/postgres-check
+test -f /tmp/postgres-check/neuron.yaml || exit 1
+test -f /tmp/postgres-check/run.sh || exit 1
+test -x /tmp/postgres-check/run.sh || exit 1
 echo "✓ Test 3 passed"
 
 # Test 4: Validate generated neuron works
 echo "Test 4: Execute generated neuron"
-cd /tmp/nginx-check
+cd /tmp/postgres-check
 chmod +x run.sh
-./run.sh && echo "✓ Test 4 passed" || echo "⚠ Test 4: neuron execution failed (expected if nginx not running)"
+./run.sh && echo "✓ Test 4 passed" || echo "⚠ Test 4: neuron execution failed (expected if PostgreSQL not running)"
 
 echo "=== All acceptance tests passed ==="
 ```
