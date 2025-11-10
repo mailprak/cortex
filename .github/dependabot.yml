@@ -1,0 +1,86 @@
+# Dependabot configuration for automated dependency updates and security patches
+# See: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates
+
+version: 2
+updates:
+  # Go modules (backend dependencies)
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "anoop2811"
+    labels:
+      - "dependencies"
+      - "go"
+      - "security"
+    commit-message:
+      prefix: "deps(go)"
+      include: "scope"
+    # Group updates to reduce PR noise
+    groups:
+      ginkgo-gomega:
+        patterns:
+          - "github.com/onsi/ginkgo*"
+          - "github.com/onsi/gomega"
+      spf13:
+        patterns:
+          - "github.com/spf13/*"
+    # Allow both direct and indirect dependency updates
+    allow:
+      - dependency-type: "all"
+    # Ignore major version bumps for stable dependencies
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # npm packages (Playwright E2E tests)
+  - package-ecosystem: "npm"
+    directory: "/acceptance/web-ui"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "anoop2811"
+    labels:
+      - "dependencies"
+      - "npm"
+      - "testing"
+    commit-message:
+      prefix: "deps(npm)"
+      include: "scope"
+    # Group Playwright updates
+    groups:
+      playwright:
+        patterns:
+          - "@playwright/*"
+      types:
+        patterns:
+          - "@types/*"
+    versioning-strategy: increase
+
+  # GitHub Actions (CI/CD workflows)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "anoop2811"
+    labels:
+      - "dependencies"
+      - "github-actions"
+      - "ci-cd"
+    commit-message:
+      prefix: "ci"
+      include: "scope"

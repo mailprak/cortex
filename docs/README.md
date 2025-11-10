@@ -60,6 +60,7 @@ docs/
 
 - **[Contributing Guide](guides/contributing.md)** - Code contributions, issues, PRs
 - **[Testing Guide](TESTING.md)** - TDD workflow, running tests, coverage
+- **[Security Guide](guides/security.md)** - Security practices and vulnerability scanning
 - **[Dependencies](DEPENDENCIES.md)** - All open source dependencies and licenses
 
 ### Technical Specifications

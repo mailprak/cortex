@@ -345,6 +345,16 @@ Cortex brings **science to the art** by:
 - **Privacy-First**: AI is optional, local mode available
 - **Open Source**: 100% Apache 2.0, no bait-and-switch
 
+## Security
+
+Cortex takes security seriously. We use automated scanning and follow secure development practices.
+
+- **Security Policy**: See [SECURITY.md](SECURITY.md) for vulnerability reporting
+- **Automated Scanning**: Dependabot, CodeQL, Trivy, Gosec
+- **Dependency Updates**: Weekly automated security patches
+
+**Found a security issue?** Please report it privately - see [SECURITY.md](SECURITY.md)
+
 ## Community
 
 - **GitHub Issues**: [Bug reports and feature requests](https://github.com/anoop2811/cortex/issues)
