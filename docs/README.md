@@ -1,231 +1,186 @@
-# Cortex Documentation Index
+# Cortex Documentation
 
-Welcome to the Cortex documentation! This directory contains comprehensive specifications and strategic planning documents for the Cortex AI-powered infrastructure debugging orchestrator.
+Welcome to Cortex - an AI-powered infrastructure debugging orchestrator designed to help teams organize, share, and automate debugging workflows.
 
-## 📋 Available Documents
+## 📚 Documentation Structure
 
-### Technical Specifications (`/specs`)
+```
+docs/
+├── README.md                    # This file - documentation index
+├── DEPENDENCIES.md              # All dependencies and licenses
+├── TESTING.md                   # Testing guide (TDD with Ginkgo/Playwright)
+├── guides/                      # User and contributor guides
+│   ├── getting-started.md       # Quick start guide
+│   ├── user-guide.md            # Complete user documentation
+│   └── contributing.md          # How to contribute to Cortex
+├── architecture/                # System architecture and design
+│   ├── overview.md              # High-level architecture
+│   ├── ai-neuron-generation.md  # AI generation system design
+│   └── web-ui.md                # Web UI architecture
+└── specs/                       # Technical specifications
+    ├── ai-neuron-generation.md  # AI feature spec
+    └── web-ui-specification.md  # Web UI spec
+```
 
-#### 1. **AI Neuron Generation** (`specs/ai-neuron-generation.md`)
-- **Size:** 43KB
-- **Purpose:** Complete technical specification for AI-powered neuron generation feature
-- **Contents:**
-  - Architecture design (6-stage generation pipeline)
-  - LLM provider integration (OpenAI, Anthropic, Ollama, Azure)
-  - Prompt engineering and few-shot learning
-  - Security and privacy considerations
-  - Performance requirements (< 5s generation time)
-  - 12-week implementation roadmap
-  - Cost estimation (~$0.034 per neuron)
+## 🚀 For New Users
 
-**Key Features:**
-- Natural language → working neuron in < 2 minutes
-- Context-aware generation using existing neurons
-- Privacy-first with offline mode support
-- Production-ready with comprehensive validation
+**Want to use Cortex?** Start here:
 
----
+1. **[Getting Started Guide](guides/getting-started.md)** - Install and run your first neuron
+2. **[User Guide](guides/user-guide.md)** - Complete usage documentation
+3. **[Architecture Overview](architecture/overview.md)** - Understand how Cortex works
 
-#### 2. **Web UI & Kubernetes Deployment** (`specs/web-ui-specification.md`)
-- **Size:** 64KB
-- **Purpose:** Complete UI/UX specification and Kubernetes deployment architecture
-- **Contents:**
-  - Modern web interface design (React + Go)
-  - Real-time features (WebSocket, live logs)
-  - Visual workflow builder (drag-drop DAG)
-  - Kubernetes deployment manifests and Helm charts
-  - Fleet management for edge devices
-  - Accessibility and performance standards
-  - Database schema and API endpoints
+## 🛠️ For Contributors
 
-**Key Features:**
-- Beautiful real-time dashboard
-- Mobile-responsive PWA
-- Visual synapse builder
-- Multi-node fleet management
-- Deploy as binary OR in Kubernetes
-- < 10MB container size
+**Want to contribute?** Start here:
 
----
+1. **[Contributing Guide](guides/contributing.md)** - How to contribute code, docs, or ideas
+2. **[Testing Guide](TESTING.md)** - TDD workflow with Ginkgo and Playwright
+3. **[Architecture Docs](architecture/)** - Understand the codebase
+4. **[Technical Specs](specs/)** - Detailed feature specifications
 
-### Marketing & Launch (`/marketing`)
+## 📖 Key Documents
 
-#### 3. **Product Hunt Launch Plan** (`marketing/product-hunt-launch.md`)
-- **Size:** 36KB (updated with UI highlights)
-- **Purpose:** Comprehensive 90-day launch strategy
-- **Contents:**
-  - Pre-launch preparation timeline
-  - Hour-by-hour launch day playbook
-  - Content assets (demo videos, FAQs)
-  - Community engagement tactics
-  - Success metrics (400+ upvotes, top 5 product)
-  - Risk mitigation strategies
-  - Email campaign templates
+### User Documentation
 
-**Launch Goals:**
-- Top 5 Product of the Day
-- 5,000 GitHub stars (month 1)
-- 10,000+ downloads
-- Strong community foundation
+- **[Getting Started](guides/getting-started.md)** - Install, configure, and run Cortex
+- **[User Guide](guides/user-guide.md)** - Complete feature documentation
+  - Creating neurons (debugging scripts)
+  - Building synapses (workflows)
+  - AI-powered neuron generation
+  - Web UI dashboard
+  - Fleet management
 
----
+### Architecture Documentation
 
-## 🎯 Quick Navigation by Use Case
+- **[Architecture Overview](architecture/overview.md)** - System design and components
+- **[AI Neuron Generation](architecture/ai-neuron-generation.md)** - How AI generation works
+- **[Web UI Architecture](architecture/web-ui.md)** - Frontend and backend design
 
-### For Developers/Contributors
-→ **Start here:** `specs/ai-neuron-generation.md` (understand core AI feature)
-→ **Then:** `specs/web-ui-specification.md` (frontend/backend architecture)
+### Development Documentation
 
-### For Product/Marketing Team
-→ **Start here:** `marketing/product-hunt-launch.md` (launch strategy)
-→ **Review:** `specs/web-ui-specification.md` (understand UI features for demos)
+- **[Contributing Guide](guides/contributing.md)** - Code contributions, issues, PRs
+- **[Testing Guide](TESTING.md)** - TDD workflow, running tests, coverage
+- **[Dependencies](DEPENDENCIES.md)** - All open source dependencies and licenses
 
-### For DevOps/Deployment
-→ **Start here:** `specs/web-ui-specification.md` → Kubernetes Deployment section
-→ **Quick deploy:** Follow Helm chart instructions
+### Technical Specifications
 
----
+- **[AI Neuron Generation Spec](specs/ai-neuron-generation.md)** - Complete AI feature design
+- **[Web UI Specification](specs/web-ui-specification.md)** - Web interface design
 
-## 🚀 Key Product Differentiators
+## 🎯 What is Cortex?
 
-Based on research and specifications, Cortex stands out because:
+Cortex is an **open source infrastructure debugging orchestrator** that helps teams:
 
-1. **AI-Native from Day 1**
-   - Generate neurons from plain English
-   - Auto-fix suggestions with ML
-   - Self-learning from execution history
+1. **Organize debugging knowledge** - Create reusable "neurons" (debugging scripts)
+2. **Build automated workflows** - Chain neurons into "synapses" (workflows)
+3. **Generate AI-powered solutions** - Describe problems in natural language, get working scripts
+4. **Visualize and monitor** - Modern web UI with real-time execution tracking
+5. **Deploy anywhere** - Single binary OR Kubernetes, runs on edge devices
 
-2. **Edge-First Architecture**
-   - Single 50MB binary
-   - Runs on Raspberry Pi Zero
-   - Zero dependencies
+## 🌟 Key Features
 
-3. **Beautiful Modern UI**
-   - Real-time WebSocket streaming
-   - Visual DAG workflow builder
-   - Mobile-responsive PWA
-   - Fleet management dashboard
+- **🤖 AI-Powered**: Generate debugging scripts from natural language
+- **⚡ Edge-First**: 50MB binary, runs on Raspberry Pi
+- **🎨 Modern UI**: Real-time dashboard with visual workflow builder
+- **🔓 100% Open Source**: Apache 2.0, all dependencies verified open source
+- **🚀 Flexible Deployment**: Local binary OR Kubernetes
 
-4. **Flexible Deployment**
-   - Local binary: `cortex ui --port 8080`
-   - Kubernetes: `helm install cortex`
-   - Docker Compose for teams
+## 🏗️ Architecture
 
-5. **True Open Source**
-   - Apache 2.0 license
-   - No commercial upsell
-   - Community-driven development
+```
+┌─────────────────────────────────────────────────────┐
+│                   Cortex System                     │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│  CLI Interface          Web UI (React + Vite)       │
+│  (Go Binary)            (Real-time Dashboard)       │
+│       │                         │                   │
+│       └─────────┬───────────────┘                   │
+│                 │                                    │
+│         ┌───────▼────────┐                          │
+│         │  Core Engine   │                          │
+│         │  - Neuron Exec │                          │
+│         │  - Synapse DAG │                          │
+│         │  - AI Gen      │                          │
+│         └───────┬────────┘                          │
+│                 │                                    │
+│    ┌────────────┼────────────┐                      │
+│    │            │            │                      │
+│ Database    Storage      AI Providers               │
+│ (SQLite/    (Local/      (OpenAI/Anthropic/         │
+│  Postgres)   S3)          Ollama)                   │
+└─────────────────────────────────────────────────────┘
+```
 
----
+See [Architecture Overview](architecture/overview.md) for details.
 
-## 📊 Implementation Roadmap
+## 📊 Project Status
 
-### Phase 1: MVP (Weeks 1-6)
-- ✅ AI neuron generator (CLI)
-- ✅ Web UI core features (Dashboard, Library, Logs)
-- ✅ Real-time WebSocket streaming
-- ✅ Docker containerization
+- **Current Version**: 1.0 (in development)
+- **Status**: Active development
+- **License**: Apache 2.0
+- **Language**: Go 1.25.4
+- **Dependencies**: 100% open source
 
-### Phase 2: Advanced Features (Weeks 7-12)
-- ✅ Visual synapse builder (DAG editor)
-- ✅ Kubernetes deployment (Helm chart)
-- ✅ Fleet management view
-- ✅ Mobile optimizations
-- ✅ Production hardening
+### Roadmap
 
-### Phase 3: Scale & Ecosystem (Post-1.0)
-- 🚧 Plugin marketplace
-- 🚧 Self-healing mode
-- 🚧 Predictive maintenance
-- 🚧 Multi-agent collaboration
-
----
-
-## 🎨 Tech Stack Summary
-
-### Frontend
-- **Framework:** React 18 + TypeScript
-- **Build:** Vite (fast HMR)
-- **Styling:** Tailwind CSS + Radix UI
-- **State:** Zustand + TanStack Query
-- **Real-time:** WebSocket + SSE
-- **Visualization:** Recharts + React Flow
-
-### Backend
-- **Language:** Go 1.22+
-- **Router:** Chi Router
-- **Database:** SQLite (local) / PostgreSQL (K8s)
-- **ORM:** GORM
-- **Auth:** JWT + bcrypt
-- **Observability:** Prometheus + OpenTelemetry
-
-### Infrastructure
-- **Container:** Docker (< 10MB final image)
-- **Orchestration:** Kubernetes + Helm
-- **Storage:** PersistentVolume for logs
-- **Ingress:** nginx / Traefik
-
----
-
-## 📈 Success Metrics
-
-### Technical
-- Neuron generation time: < 5s (target: 2s)
-- Web UI load time: < 2s on 3G
-- WebSocket latency: < 100ms
-- API response time: < 200ms (p95)
-
-### Adoption
-- GitHub stars: 5,000 (12 months)
-- Monthly active users: 2,000
-- Plugin count: 50
-- Contributors: 100
-
-### Business
-- Cloud customers: 100
-- Sponsorship MRR: $2,000
-- Enterprise pilots: 5
-
----
+- ✅ Core neuron/synapse execution
+- ✅ CLI interface
+- 🚧 AI neuron generation (OpenAI, Anthropic, Ollama)
+- 🚧 Web UI dashboard
+- 🚧 Visual synapse builder
+- 🚧 Kubernetes deployment
+- 📋 Fleet management
+- 📋 Plugin marketplace
 
 ## 🤝 Contributing
 
-We welcome contributions! Before diving in:
+We welcome contributions! Please see:
 
-1. **Read the specs** to understand the architecture
-2. **Check open issues** for good first issues
-3. **Join Discord** for real-time discussion
-4. **Follow roadmap** to align with project direction
+- **[Contributing Guide](guides/contributing.md)** - How to contribute
+- **[Testing Guide](TESTING.md)** - How to write and run tests
+- **[GitHub Issues](https://github.com/anoop2811/cortex/issues)** - Bug reports and feature requests
+
+### Quick Start for Contributors
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/anoop2811/cortex.git
+cd cortex
+
+# 2. Install dependencies
+make install-deps
+
+# 3. Run tests
+make test-all
+
+# 4. Build the binary
+make build
+
+# 5. Run Cortex
+./cortex --help
+```
+
+## 📜 License
+
+Apache License 2.0 - See [LICENSE](../LICENSE) for details.
+
+All dependencies are verified as 100% open source. See [DEPENDENCIES.md](DEPENDENCIES.md) for the complete list.
+
+## 🔗 Links
+
+- **GitHub**: https://github.com/anoop2811/cortex
+- **Issues**: https://github.com/anoop2811/cortex/issues
+- **Discussions**: https://github.com/anoop2811/cortex/discussions
+
+## 📞 Community
+
+- **GitHub Discussions**: Ask questions, share ideas
+- **GitHub Issues**: Report bugs, request features
+- **Pull Requests**: Contribute code and documentation
 
 ---
 
-## 📞 Contact & Resources
-
-- **GitHub:** https://github.com/[user]/cortex
-- **Website:** https://cortex.dev
-- **Discord:** https://discord.gg/cortex
-- **Twitter:** @cortexai
-- **Docs:** https://docs.cortex.dev
-
----
-
-## 📝 Document Status
-
-| Document | Status | Last Updated | Owner |
-|----------|--------|--------------|-------|
-| ai-neuron-generation.md | ✅ Ready for Review | 2025-01-07 | Core Team |
-| web-ui-specification.md | ✅ Ready for Review | 2025-01-07 | Core Team |
-| product-hunt-launch.md | ✅ Ready for Execution | 2025-01-07 | Marketing Team |
-
----
-
-**Next Steps:**
-1. Review and approve technical specifications
-2. Begin Phase 1 implementation (AI generator + Web UI MVP)
-3. Start pre-launch marketing activities (90 days out)
-4. Recruit beta testers (target: 30 users)
-
----
-
-*Last updated: 2025-01-07*
-*Version: 1.0*
+**Maintained By**: Cortex Community
+**Last Updated**: November 2025
