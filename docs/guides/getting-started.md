@@ -155,17 +155,36 @@ ollama serve
 
 ```bash
 cortex generate-neuron \
-  --prompt "Check if port 8080 is open and listening" \
+  --prompt "Check which process is using port 8080 on localhost and show the full command with PID" \
   --provider openai \
   --output check-port-8080
 ```
 
 Cortex will:
 1. Analyze your prompt
-2. Generate a working shell script
-3. Create neuron config
+2. Generate a working shell script (using `lsof` or `netstat` + `ps`)
+3. Create neuron config with proper error handling
 4. Validate the syntax
 5. Save to `check-port-8080/`
+
+**More realistic examples:**
+
+```bash
+# Find which process is hogging a port and kill it gracefully
+cortex generate-neuron \
+  --prompt "Find the process using port 3000, show its details, then kill it gracefully with SIGTERM" \
+  --provider openai
+
+# Check if services are actually responding, not just running
+cortex generate-neuron \
+  --prompt "Check if PostgreSQL on port 5432 is accepting connections and can execute a simple query" \
+  --provider ollama
+
+# Complex multi-step check
+cortex generate-neuron \
+  --prompt "Check disk usage on all mounts, alert if any is over 80%, and show top 10 largest directories" \
+  --provider anthropic
+```
 
 ### 3. Review and Execute
 
@@ -173,7 +192,17 @@ Cortex will:
 # Review generated code
 cat check-port-8080/run.sh
 
-# Execute
+# You'll see something like:
+# #!/bin/bash
+# PID=$(lsof -ti:8080)
+# if [ -z "$PID" ]; then
+#   echo "No process is using port 8080"
+#   exit 1
+# fi
+# ps -p $PID -o pid,ppid,cmd,user,etime
+# exit 0
+
+# Execute it
 cortex exec -p check-port-8080
 ```
 
@@ -220,16 +249,20 @@ cortex exec -p daily-checks
 ### Kubernetes Debugging
 
 ```bash
-# Generate K8s debugging neurons
+# Real-world K8s debugging scenarios
 cortex generate-neuron \
-  --prompt "Check all pods in default namespace" \
+  --prompt "Find all pods in CrashLoopBackOff state across all namespaces and show their last 50 log lines" \
   --provider ollama
 
 cortex generate-neuron \
-  --prompt "Get logs from failed pods" \
+  --prompt "Check if any pods are consuming more than 80% of their memory limits and identify the top 5" \
   --provider ollama
 
-# Create synapse
+cortex generate-neuron \
+  --prompt "List all ImagePullBackOff errors with the failing image names and registry details" \
+  --provider ollama
+
+# Create diagnostic synapse
 cortex create-synapse k8s-debug
 ```
 
@@ -312,11 +345,14 @@ chmod +x cortex
 # Check API key
 echo $OPENAI_API_KEY
 
-# Test Ollama connection
+# Test Ollama connection (for local generation)
 curl http://localhost:11434/api/tags
 
-# Use --debug flag
-cortex generate-neuron --prompt "..." --debug
+# Use --debug flag for detailed error messages
+cortex generate-neuron \
+  --prompt "Check which process is using port 5432" \
+  --provider openai \
+  --debug
 ```
 
 ### Tests failing

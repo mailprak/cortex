@@ -202,15 +202,20 @@ cortex exec -p k8s-resource-analysis
 ### AI-Powered Generation (Coming Soon)
 
 ```bash
-# Generate neuron from natural language
+# Solve real debugging problems with natural language
 cortex generate-neuron \
-  --prompt "Check if port 8080 is open and listening" \
+  --prompt "Find which process is using port 8080 and show full command with PID" \
   --provider openai
 
-# Batch generation
+# Complex multi-step diagnostics
 cortex generate-neuron \
-  --batch prompts.txt \
-  --provider ollama  # Local, no API key needed
+  --prompt "Check if PostgreSQL is running, accepting connections, and responding to queries" \
+  --provider anthropic
+
+# Local generation (no API key needed)
+cortex generate-neuron \
+  --prompt "Show disk usage for all mounts and alert if any exceeds 80%" \
+  --provider ollama
 ```
 
 ## Development
