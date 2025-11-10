@@ -44,15 +44,15 @@ graph TB
     NeuronExec -.->|future| Database
     SynapseDAG -.->|future| Database
 
-    style CLI fill:#e1f5ff
-    style WebUI fill:#e1f5ff,stroke-dasharray: 5 5
-    style Orchestrator fill:#fff4e1
-    style NeuronExec fill:#c8e6c9
-    style SynapseDAG fill:#c8e6c9
-    style AIGen fill:#f3e5f5,stroke-dasharray: 5 5
-    style FileSystem fill:#fce4ec
-    style Database fill:#fce4ec,stroke-dasharray: 5 5
-    style LLM fill:#fff3e0,stroke-dasharray: 5 5
+    style CLI fill:#e1f5ff,color:#1f2937
+    style WebUI fill:#e1f5ff,stroke-dasharray: 5 5,color:#1f2937
+    style Orchestrator fill:#fff4e1,color:#1f2937
+    style NeuronExec fill:#c8e6c9,color:#1f2937
+    style SynapseDAG fill:#c8e6c9,color:#1f2937
+    style AIGen fill:#f3e5f5,stroke-dasharray: 5 5,color:#1f2937
+    style FileSystem fill:#fce4ec,color:#1f2937
+    style Database fill:#fce4ec,stroke-dasharray: 5 5,color:#1f2937
+    style LLM fill:#fff3e0,stroke-dasharray: 5 5,color:#1f2937
 ```
 
 > 📘 **See detailed flow diagrams**: [Architecture Diagrams](../diagrams/architecture.md)

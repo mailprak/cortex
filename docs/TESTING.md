@@ -50,13 +50,13 @@ flowchart TD
     AcceptanceGreen --> Refactor
     Refactor --> Done([✅ Feature Complete])
 
-    style AcceptanceRed fill:#ffcdd2
-    style UnitRed fill:#ffcdd2
-    style Implementation fill:#fff9c4
-    style UnitGreen fill:#c8e6c9
-    style AcceptanceGreen fill:#c8e6c9
-    style Refactor fill:#e1bee7
-    style Done fill:#c8e6c9
+    style AcceptanceRed fill:#ffcdd2,color:#1f2937
+    style UnitRed fill:#ffcdd2,color:#1f2937
+    style Implementation fill:#fff9c4,color:#1f2937
+    style UnitGreen fill:#c8e6c9,color:#1f2937
+    style AcceptanceGreen fill:#c8e6c9,color:#1f2937
+    style Refactor fill:#e1bee7,color:#1f2937
+    style Done fill:#c8e6c9,color:#1f2937
 ```
 
 ### Outer Loop TDD (Acceptance Tests)

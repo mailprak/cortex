@@ -38,10 +38,10 @@ flowchart LR
     B --> C["Insights<br/>(Results)"]
     D["AI Generator"] -.->|generates| A
 
-    style A fill:#e1f5ff,stroke:#3b82f6,stroke-width:2px
-    style B fill:#fff4e1,stroke:#f59e0b,stroke-width:2px
-    style C fill:#c8e6c9,stroke:#10b981,stroke-width:2px
-    style D fill:#f3e5f5,stroke:#8b5cf6,stroke-width:2px
+    style A fill:#e1f5ff,stroke:#3b82f6,stroke-width:2px,color:#1f2937
+    style B fill:#fff4e1,stroke:#f59e0b,stroke-width:2px,color:#1f2937
+    style C fill:#c8e6c9,stroke:#10b981,stroke-width:2px,color:#1f2937
+    style D fill:#f3e5f5,stroke:#8b5cf6,stroke-width:2px,color:#1f2937
 ```
 
 ### Key Benefits
@@ -174,14 +174,14 @@ flowchart LR
     N3 -->|Success| Done[All Checks Passed]
     N3 -->|Failure| Stop3[Failed]
 
-    style Start fill:#e1f5ff,stroke:#3b82f6,stroke-width:2px
-    style N1 fill:#fff4e1,stroke:#f59e0b,stroke-width:2px
-    style N2 fill:#fff4e1,stroke:#f59e0b,stroke-width:2px
-    style N3 fill:#fff4e1,stroke:#f59e0b,stroke-width:2px
-    style Done fill:#c8e6c9,stroke:#10b981,stroke-width:2px
-    style Stop1 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px
-    style Stop2 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px
-    style Stop3 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px
+    style Start fill:#e1f5ff,stroke:#3b82f6,stroke-width:2px,color:#1f2937
+    style N1 fill:#fff4e1,stroke:#f59e0b,stroke-width:2px,color:#1f2937
+    style N2 fill:#fff4e1,stroke:#f59e0b,stroke-width:2px,color:#1f2937
+    style N3 fill:#fff4e1,stroke:#f59e0b,stroke-width:2px,color:#1f2937
+    style Done fill:#c8e6c9,stroke:#10b981,stroke-width:2px,color:#1f2937
+    style Stop1 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px,color:#1f2937
+    style Stop2 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px,color:#1f2937
+    style Stop3 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px,color:#1f2937
 ```
 
 ## Architecture
@@ -216,13 +216,13 @@ graph TB
     SynapseDAG --> FileSystem
     AIGen -.->|future| FileSystem
 
-    style CLI fill:#e1f5ff
-    style WebUI fill:#e1f5ff,stroke-dasharray: 5 5
-    style Orchestrator fill:#fff4e1
-    style NeuronExec fill:#c8e6c9
-    style SynapseDAG fill:#c8e6c9
-    style AIGen fill:#f3e5f5,stroke-dasharray: 5 5
-    style FileSystem fill:#fce4ec
+    style CLI fill:#e1f5ff,color:#1f2937
+    style WebUI fill:#e1f5ff,stroke-dasharray: 5 5,color:#1f2937
+    style Orchestrator fill:#fff4e1,color:#1f2937
+    style NeuronExec fill:#c8e6c9,color:#1f2937
+    style SynapseDAG fill:#c8e6c9,color:#1f2937
+    style AIGen fill:#f3e5f5,stroke-dasharray: 5 5,color:#1f2937
+    style FileSystem fill:#fce4ec,color:#1f2937
 ```
 
 > 📘 **See detailed diagrams**: [Architecture Diagrams](docs/diagrams/architecture.md)
@@ -291,12 +291,12 @@ flowchart TB
         LogAnalysis[Log Analysis]
     end
 
-    style Daily fill:#e1f5ff,stroke:#3b82f6,stroke-width:2px
-    style Incident fill:#ffcdd2,stroke:#ef4444,stroke-width:2px
-    style Auto fill:#c8e6c9,stroke:#10b981,stroke-width:2px
-    style K8sHealth fill:#fff4e1,stroke:#f59e0b,stroke-width:2px
-    style DBHealth fill:#f3e5f5,stroke:#8b5cf6,stroke-width:2px
-    style PortCheck fill:#e8f5e9,stroke:#10b981,stroke-width:2px
+    style Daily fill:#e1f5ff,stroke:#3b82f6,stroke-width:2px,color:#1f2937
+    style Incident fill:#ffcdd2,stroke:#ef4444,stroke-width:2px,color:#1f2937
+    style Auto fill:#c8e6c9,stroke:#10b981,stroke-width:2px,color:#1f2937
+    style K8sHealth fill:#fff4e1,stroke:#f59e0b,stroke-width:2px,color:#1f2937
+    style DBHealth fill:#f3e5f5,stroke:#8b5cf6,stroke-width:2px,color:#1f2937
+    style PortCheck fill:#e8f5e9,stroke:#10b981,stroke-width:2px,color:#1f2937
 ```
 
 ### DevOps & SRE
@@ -397,11 +397,11 @@ flowchart LR
     Pass -->|Yes| Refactor[REFACTOR:<br/>Improve Code]
     Refactor --> Done[Feature Complete]
 
-    style Red1 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px
-    style Red2 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px
-    style Green fill:#c8e6c9,stroke:#10b981,stroke-width:2px
-    style Refactor fill:#e1bee7,stroke:#8b5cf6,stroke-width:2px
-    style Done fill:#c8e6c9,stroke:#10b981,stroke-width:2px
+    style Red1 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px,color:#1f2937
+    style Red2 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px,color:#1f2937
+    style Green fill:#c8e6c9,stroke:#10b981,stroke-width:2px,color:#1f2937
+    style Refactor fill:#e1bee7,stroke:#8b5cf6,stroke-width:2px,color:#1f2937
+    style Done fill:#c8e6c9,stroke:#10b981,stroke-width:2px,color:#1f2937
 ```
 
 See [Testing Guide](docs/TESTING.md) for details.

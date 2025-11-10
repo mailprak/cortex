@@ -42,14 +42,14 @@ graph TB
     NeuronExec -.->|future| Database
     SynapseDAG -.->|future| Database
 
-    style CLI fill:#e1f5ff
-    style WebUI fill:#e1f5ff
-    style Orchestrator fill:#fff4e1
-    style NeuronExec fill:#e8f5e9
-    style SynapseDAG fill:#e8f5e9
-    style AIGen fill:#f3e5f5
-    style FileSystem fill:#fce4ec
-    style LLM fill:#fff3e0
+    style CLI fill:#e1f5ff,color:#1f2937
+    style WebUI fill:#e1f5ff,color:#1f2937
+    style Orchestrator fill:#fff4e1,color:#1f2937
+    style NeuronExec fill:#e8f5e9,color:#1f2937
+    style SynapseDAG fill:#e8f5e9,color:#1f2937
+    style AIGen fill:#f3e5f5,color:#1f2937
+    style FileSystem fill:#fce4ec,color:#1f2937
+    style LLM fill:#fff3e0,color:#1f2937
 ```
 
 ## Neuron Execution Flow
@@ -122,14 +122,14 @@ flowchart TD
     Fail3 --> End1
     FailParallel --> End1
 
-    style Start fill:#e1f5ff
-    style Success fill:#c8e6c9
-    style Fail1 fill:#ffcdd2
-    style Fail2 fill:#ffcdd2
-    style Fail3 fill:#ffcdd2
-    style FailParallel fill:#ffcdd2
-    style End fill:#c8e6c9
-    style End1 fill:#ffcdd2
+    style Start fill:#e1f5ff,color:#1f2937
+    style Success fill:#c8e6c9,color:#1f2937
+    style Fail1 fill:#ffcdd2,color:#1f2937
+    style Fail2 fill:#ffcdd2,color:#1f2937
+    style Fail3 fill:#ffcdd2,color:#1f2937
+    style FailParallel fill:#ffcdd2,color:#1f2937
+    style End fill:#c8e6c9,color:#1f2937
+    style End1 fill:#ffcdd2,color:#1f2937
 ```
 
 ## AI Neuron Generation Flow
@@ -171,12 +171,12 @@ flowchart LR
     ValidateShell --> Security
     Security --> Files
 
-    style User fill:#e1f5ff
-    style Intent fill:#fff4e1
-    style Context fill:#fff4e1
-    style LLM fill:#f3e5f5
-    style Security fill:#ffebee
-    style Files fill:#c8e6c9
+    style User fill:#e1f5ff,color:#1f2937
+    style Intent fill:#fff4e1,color:#1f2937
+    style Context fill:#fff4e1,color:#1f2937
+    style LLM fill:#f3e5f5,color:#1f2937
+    style Security fill:#ffebee,color:#1f2937
+    style Files fill:#c8e6c9,color:#1f2937
 ```
 
 ## TDD Workflow (Outer + Inner Loop)
@@ -206,13 +206,13 @@ flowchart TD
     AcceptanceGreen --> Refactor
     Refactor --> Done([✅ Feature Complete])
 
-    style AcceptanceRed fill:#ffcdd2
-    style UnitRed fill:#ffcdd2
-    style Implementation fill:#fff9c4
-    style UnitGreen fill:#c8e6c9
-    style AcceptanceGreen fill:#c8e6c9
-    style Refactor fill:#e1bee7
-    style Done fill:#c8e6c9
+    style AcceptanceRed fill:#ffcdd2,color:#1f2937
+    style UnitRed fill:#ffcdd2,color:#1f2937
+    style Implementation fill:#fff9c4,color:#1f2937
+    style UnitGreen fill:#c8e6c9,color:#1f2937
+    style AcceptanceGreen fill:#c8e6c9,color:#1f2937
+    style Refactor fill:#e1bee7,color:#1f2937
+    style Done fill:#c8e6c9,color:#1f2937
 ```
 
 ## Deployment Models
@@ -240,11 +240,11 @@ graph TB
         K8s -.->|Supports| F2[All features<br/>Web UI<br/>Fleet management<br/>Multi-user]
     end
 
-    style Binary fill:#e1f5ff
-    style K8s fill:#f3e5f5
-    style Edge1 fill:#c8e6c9
-    style Edge2 fill:#c8e6c9
-    style Edge3 fill:#c8e6c9
+    style Binary fill:#e1f5ff,color:#1f2937
+    style K8s fill:#f3e5f5,color:#1f2937
+    style Edge1 fill:#c8e6c9,color:#1f2937
+    style Edge2 fill:#c8e6c9,color:#1f2937
+    style Edge3 fill:#c8e6c9,color:#1f2937
 ```
 
 ## Neuron File Structure
@@ -268,9 +268,9 @@ graph TD
     Script --> Logic[Check logic]
     Script --> ExitCode[exit with code]
 
-    style Neuron fill:#e1f5ff
-    style Config fill:#fff4e1
-    style Script fill:#c8e6c9
+    style Neuron fill:#e1f5ff,color:#1f2937
+    style Config fill:#fff4e1,color:#1f2937
+    style Script fill:#c8e6c9,color:#1f2937
 ```
 
 ## Security Scanning Pipeline
@@ -323,12 +323,12 @@ flowchart TD
     Block -->|Critical| Fail[❌ Block PR/Push]
     Block -->|Lower| Pass[✅ Allow with warning]
 
-    style Push fill:#e1f5ff
-    style PR fill:#e1f5ff
-    style Schedule fill:#e1f5ff
-    style GoVuln fill:#c8e6c9
-    style CodeQL fill:#fff4e1
-    style SARIF fill:#f3e5f5
-    style Fail fill:#ffcdd2
-    style Pass fill:#c8e6c9
+    style Push fill:#e1f5ff,color:#1f2937
+    style PR fill:#e1f5ff,color:#1f2937
+    style Schedule fill:#e1f5ff,color:#1f2937
+    style GoVuln fill:#c8e6c9,color:#1f2937
+    style CodeQL fill:#fff4e1,color:#1f2937
+    style SARIF fill:#f3e5f5,color:#1f2937
+    style Fail fill:#ffcdd2,color:#1f2937
+    style Pass fill:#c8e6c9,color:#1f2937
 ```
