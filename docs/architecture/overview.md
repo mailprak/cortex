@@ -4,46 +4,58 @@ High-level architecture and design principles for the Cortex infrastructure debu
 
 ## System Architecture
 
+**High-Level System Diagram:**
+
+```mermaid
+graph TB
+    subgraph "User Interfaces"
+        CLI[CLI Interface<br/>cobra + viper]
+        WebUI[Web Dashboard<br/>React + Vite]
+    end
+
+    subgraph "Core Engine"
+        Orchestrator[Orchestrator]
+        NeuronExec[Neuron Executor]
+        SynapseDAG[Synapse DAG Engine]
+        AIGen[AI Generator<br/>OpenAI/Anthropic/Ollama]
+    end
+
+    subgraph "Storage Layer"
+        FileSystem[(File System<br/>YAML + Shell)]
+        Database[(SQLite/Postgres<br/>Future)]
+    end
+
+    subgraph "External Services"
+        LLM[LLM Providers<br/>OpenAI/Anthropic/Ollama]
+        Git[Git/GitHub]
+    end
+
+    CLI --> Orchestrator
+    WebUI -.->|future| Orchestrator
+    Orchestrator --> NeuronExec
+    Orchestrator --> SynapseDAG
+    Orchestrator --> AIGen
+
+    NeuronExec --> FileSystem
+    SynapseDAG --> FileSystem
+    AIGen -.->|future| LLM
+    AIGen -.->|future| FileSystem
+
+    NeuronExec -.->|future| Database
+    SynapseDAG -.->|future| Database
+
+    style CLI fill:#e1f5ff
+    style WebUI fill:#e1f5ff,stroke-dasharray: 5 5
+    style Orchestrator fill:#fff4e1
+    style NeuronExec fill:#c8e6c9
+    style SynapseDAG fill:#c8e6c9
+    style AIGen fill:#f3e5f5,stroke-dasharray: 5 5
+    style FileSystem fill:#fce4ec
+    style Database fill:#fce4ec,stroke-dasharray: 5 5
+    style LLM fill:#fff3e0,stroke-dasharray: 5 5
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        Cortex System                             │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                   │
-│  ┌──────────────┐                    ┌──────────────────┐       │
-│  │ CLI Interface│                    │  Web UI          │       │
-│  │  (Cobra)     │                    │  (React + Vite)  │       │
-│  └──────┬───────┘                    └────────┬─────────┘       │
-│         │                                     │                 │
-│         └──────────────┬──────────────────────┘                 │
-│                        │                                        │
-│              ┌─────────▼──────────┐                            │
-│              │   Core Engine       │                            │
-│              │  ┌────────────────┐ │                            │
-│              │  │ Neuron Exec    │ │                            │
-│              │  │ (Shell runner) │ │                            │
-│              │  └────────────────┘ │                            │
-│              │  ┌────────────────┐ │                            │
-│              │  │ Synapse DAG    │ │                            │
-│              │  │ (Orchestrator) │ │                            │
-│              │  └────────────────┘ │                            │
-│              │  ┌────────────────┐ │                            │
-│              │  │ AI Generator   │ │ (Future)                   │
-│              │  │ (LLM Provider) │ │                            │
-│              │  └────────────────┘ │                            │
-│              └────────┬────────────┘                            │
-│                       │                                          │
-│      ┌────────────────┼────────────────┐                        │
-│      │                │                │                        │
-│  ┌───▼──────┐    ┌───▼─────┐    ┌────▼──────┐                 │
-│  │ Database │    │ Storage │    │AI Providers│                 │
-│  │ Layer    │    │ Layer   │    │ (Optional) │                 │
-│  │          │    │         │    │            │                 │
-│  │SQLite or │    │Local or │    │OpenAI,     │                 │
-│  │Postgres  │    │S3       │    │Anthropic,  │                 │
-│  │          │    │         │    │Ollama      │                 │
-│  └──────────┘    └─────────┘    └────────────┘                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+
+> 📘 **See detailed flow diagrams**: [Architecture Diagrams](../diagrams/architecture.md)
 
 ## Core Concepts
 

@@ -23,6 +23,42 @@ Comprehensive guide for Test-Driven Development with Cortex using Ginkgo v2, Gom
 
 Cortex follows **Test-Driven Development (TDD)** with both outer-loop and inner-loop cycles:
 
+**TDD Double Loop Workflow:**
+
+```mermaid
+flowchart TD
+    subgraph "Outer Loop - Acceptance Tests"
+        AcceptanceRed[🔴 Write Failing<br/>Acceptance Test<br/>Ginkgo/Playwright]
+        AcceptanceGreen[🟢 Acceptance Test<br/>Passes]
+    end
+
+    subgraph "Inner Loop - Unit Tests"
+        UnitRed[🔴 Write Failing<br/>Unit Test<br/>Ginkgo/Gomega]
+        Implementation[🟢 Write Minimal<br/>Implementation]
+        UnitGreen[🟢 Unit Test<br/>Passes]
+        Refactor[♻️ Refactor<br/>Improve code]
+    end
+
+    AcceptanceRed --> UnitRed
+    UnitRed --> Implementation
+    Implementation --> UnitGreen
+    UnitGreen --> TestAcceptance{Acceptance<br/>passes?}
+
+    TestAcceptance -->|No| UnitRed
+    TestAcceptance -->|Yes| AcceptanceGreen
+
+    AcceptanceGreen --> Refactor
+    Refactor --> Done([✅ Feature Complete])
+
+    style AcceptanceRed fill:#ffcdd2
+    style UnitRed fill:#ffcdd2
+    style Implementation fill:#fff9c4
+    style UnitGreen fill:#c8e6c9
+    style AcceptanceGreen fill:#c8e6c9
+    style Refactor fill:#e1bee7
+    style Done fill:#c8e6c9
+```
+
 ### Outer Loop TDD (Acceptance Tests)
 1. Write failing acceptance test for user-facing feature (RED)
 2. Write unit tests and implementation (inner loop)

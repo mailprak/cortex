@@ -1,0 +1,8 @@
+definition: []
+name: health-check
+plan:
+  config:
+    exit_on_first_error: false
+  steps:
+    parallel: []
+    serial: []

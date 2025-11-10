@@ -1,20 +1,27 @@
-# Cortex
-
 <p align="center">
-  <img src="./assets/cortex_logo.jpeg" alt="Cortex Logo" width="150" height="150" />
+  <img src="./assets/cortex-logo.svg" alt="Cortex - Neural Debugging Orchestrator" width="200" height="200" />
 </p>
 
+<h1 align="center">Cortex</h1>
+
 <p align="center">
-  <strong>An AI-powered infrastructure debugging orchestrator</strong><br>
+  <strong>🧠 AI-powered infrastructure debugging orchestrator</strong><br>
   Organize, automate, and share debugging workflows with ease
 </p>
 
 <p align="center">
   <a href="#quick-start">Quick Start</a> •
   <a href="#features">Features</a> •
+  <a href="#architecture">Architecture</a> •
   <a href="#documentation">Documentation</a> •
-  <a href="#contributing">Contributing</a> •
-  <a href="#license">License</a>
+  <a href="#contributing">Contributing</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Go-1.25+-00ADD8?style=flat&logo=go" alt="Go Version" />
+  <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License" />
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome" />
+  <img src="https://img.shields.io/badge/TDD-Ginkgo%20%2B%20Gomega-green" alt="TDD" />
 </p>
 
 ---
@@ -22,6 +29,20 @@
 ## What is Cortex?
 
 Cortex helps teams organize debugging knowledge into reusable components called **neurons** (discrete tasks) and chain them into automated **synapses** (workflows). Think of it as bringing structure and science to the art of infrastructure debugging.
+
+### Visual Overview
+
+```mermaid
+flowchart LR
+    A["Neurons<br/>(Debugging Tasks)"] --> B["Synapses<br/>(Workflows)"]
+    B --> C["Insights<br/>(Results)"]
+    D["AI Generator"] -.->|generates| A
+
+    style A fill:#e1f5ff,stroke:#3b82f6,stroke-width:2px
+    style B fill:#fff4e1,stroke:#f59e0b,stroke-width:2px
+    style C fill:#c8e6c9,stroke:#10b981,stroke-width:2px
+    style D fill:#f3e5f5,stroke:#8b5cf6,stroke-width:2px
+```
 
 ### Key Benefits
 
@@ -70,6 +91,26 @@ cortex create-neuron check-nginx
 # check-nginx/
 # ├── config.yml
 # └── run.sh
+```
+
+**How it works:**
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Cortex
+    participant Neuron
+    participant System
+
+    User->>Cortex: cortex exec -p check-nginx
+    Cortex->>Neuron: Load config.yml
+    Neuron-->>Cortex: Configuration loaded
+    Cortex->>System: Execute pre_exec_debug
+    System-->>User: Checking nginx status...
+    Cortex->>System: Execute run.sh
+    System->>System: systemctl is-active nginx
+    System-->>Cortex: Exit code 0
+    Cortex->>User: Success - Nginx is running!
 ```
 
 Edit `check-nginx/config.yml`:
@@ -121,21 +162,70 @@ Execute:
 cortex exec -p health-check
 ```
 
+**Synapse Execution Flow:**
+
+```mermaid
+flowchart LR
+    Start([Execute Synapse]) --> N1[check-nginx]
+    N1 -->|Success| N2[check-database]
+    N1 -->|Failure| Stop1[Stop<br/>stopOnError]
+    N2 -->|Success| N3[check-disk-space]
+    N2 -->|Failure| Stop2[Stop]
+    N3 -->|Success| Done[All Checks Passed]
+    N3 -->|Failure| Stop3[Failed]
+
+    style Start fill:#e1f5ff,stroke:#3b82f6,stroke-width:2px
+    style N1 fill:#fff4e1,stroke:#f59e0b,stroke-width:2px
+    style N2 fill:#fff4e1,stroke:#f59e0b,stroke-width:2px
+    style N3 fill:#fff4e1,stroke:#f59e0b,stroke-width:2px
+    style Done fill:#c8e6c9,stroke:#10b981,stroke-width:2px
+    style Stop1 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px
+    style Stop2 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px
+    style Stop3 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px
+```
+
 ## Architecture
 
+**High-Level System Design:**
+
+```mermaid
+graph TB
+    subgraph "User Interfaces"
+        CLI[CLI Interface<br/>cobra + viper]
+        WebUI[Web Dashboard<br/>React + Vite]
+    end
+
+    subgraph "Core Engine"
+        Orchestrator[Orchestrator]
+        NeuronExec[Neuron Executor]
+        SynapseDAG[Synapse DAG Engine]
+        AIGen[AI Generator<br/>OpenAI/Anthropic/Ollama]
+    end
+
+    subgraph "Storage"
+        FileSystem[(File System<br/>YAML + Shell)]
+    end
+
+    CLI --> Orchestrator
+    WebUI -.->|future| Orchestrator
+    Orchestrator --> NeuronExec
+    Orchestrator --> SynapseDAG
+    Orchestrator --> AIGen
+
+    NeuronExec --> FileSystem
+    SynapseDAG --> FileSystem
+    AIGen -.->|future| FileSystem
+
+    style CLI fill:#e1f5ff
+    style WebUI fill:#e1f5ff,stroke-dasharray: 5 5
+    style Orchestrator fill:#fff4e1
+    style NeuronExec fill:#c8e6c9
+    style SynapseDAG fill:#c8e6c9
+    style AIGen fill:#f3e5f5,stroke-dasharray: 5 5
+    style FileSystem fill:#fce4ec
 ```
-┌─────────────────────────────────────────┐
-│           Cortex System                  │
-├─────────────────────────────────────────┤
-│                                          │
-│  CLI → Core Engine → Neurons/Synapses   │
-│         │                                │
-│         ├─→ Neuron Executor              │
-│         ├─→ DAG Orchestrator             │
-│         └─→ AI Generator (future)        │
-│                                          │
-└─────────────────────────────────────────┘
-```
+
+> 📘 **See detailed diagrams**: [Architecture Diagrams](docs/diagrams/architecture.md)
 
 ### Core Concepts
 
@@ -172,6 +262,42 @@ Check out the [`examples/`](examples/) directory for sample neurons and synapses
 - `k8s/k8s_cluster_health/` - Kubernetes cluster health check
 
 ## Use Cases
+
+**Common Debugging Workflows:**
+
+```mermaid
+flowchart TB
+    subgraph devops["DevOps and SRE"]
+        Daily[Daily Health Checks]
+        Incident[Incident Response]
+        Auto[Automated Remediation]
+    end
+
+    subgraph k8s["Kubernetes"]
+        K8sHealth[Cluster Health]
+        PodDebug[Pod Diagnostics]
+        Resource[Resource Analysis]
+    end
+
+    subgraph db["Database"]
+        DBHealth[Health Checks]
+        Replication[Replication Status]
+        Performance[Query Performance]
+    end
+
+    subgraph ai["AI-Generated"]
+        PortCheck[Port Process Check]
+        DiskAlert[Disk Usage Alerts]
+        LogAnalysis[Log Analysis]
+    end
+
+    style Daily fill:#e1f5ff,stroke:#3b82f6,stroke-width:2px
+    style Incident fill:#ffcdd2,stroke:#ef4444,stroke-width:2px
+    style Auto fill:#c8e6c9,stroke:#10b981,stroke-width:2px
+    style K8sHealth fill:#fff4e1,stroke:#f59e0b,stroke-width:2px
+    style DBHealth fill:#f3e5f5,stroke:#8b5cf6,stroke-width:2px
+    style PortCheck fill:#e8f5e9,stroke:#10b981,stroke-width:2px
+```
 
 ### DevOps & SRE
 
@@ -244,7 +370,7 @@ make watch
 
 ### Testing
 
-We follow Test-Driven Development (TDD):
+We follow Test-Driven Development (TDD) with outer/inner loops:
 
 ```bash
 # All tests
@@ -258,6 +384,24 @@ make test-acceptance
 
 # Coverage report
 make coverage
+```
+
+**TDD Workflow:**
+
+```mermaid
+flowchart LR
+    Red1[RED: Acceptance<br/>Test Fails] --> Red2[RED: Unit<br/>Test Fails]
+    Red2 --> Green[GREEN: Write<br/>Code]
+    Green --> Pass{Tests<br/>Pass?}
+    Pass -->|No| Red2
+    Pass -->|Yes| Refactor[REFACTOR:<br/>Improve Code]
+    Refactor --> Done[Feature Complete]
+
+    style Red1 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px
+    style Red2 fill:#ffcdd2,stroke:#ef4444,stroke-width:2px
+    style Green fill:#c8e6c9,stroke:#10b981,stroke-width:2px
+    style Refactor fill:#e1bee7,stroke:#8b5cf6,stroke-width:2px
+    style Done fill:#c8e6c9,stroke:#10b981,stroke-width:2px
 ```
 
 See [Testing Guide](docs/TESTING.md) for details.
