@@ -421,9 +421,10 @@ func generate_neuron(prompt string)(*Neuron,error){
 var _ = Describe("Neuron Generator", func() {
     Context("when prompt is valid", func() {
         It("should generate neuron successfully", func() {
-            neuron, err := GenerateNeuron("Check nginx")
+            neuron, err := GenerateNeuron("Find which process is using port 8080 and show full command with PID")
             Expect(err).NotTo(HaveOccurred())
-            Expect(neuron.Name).To(ContainSubstring("nginx"))
+            Expect(neuron.Name).To(ContainSubstring("port"))
+            Expect(neuron.Script).To(ContainSubstring("lsof"))
         })
     })
 })
@@ -510,7 +511,7 @@ Generate a debugging script from natural language.
 
 **Usage:**
 ```bash
-cortex generate-neuron --prompt "Check if nginx is running"
+cortex generate-neuron --prompt "Find which process is using port 8080 and show the full command with PID"
 ```
 
 **Options:**
@@ -521,9 +522,9 @@ cortex generate-neuron --prompt "Check if nginx is running"
 **Example:**
 ```bash
 cortex generate-neuron \
-  --prompt "Monitor CPU usage and alert if over 80%" \
+  --prompt "Check if PostgreSQL on port 5432 is accepting connections and can execute a simple query" \
   --provider openai \
-  --output cpu-monitor
+  --output postgres-health-check
 ```
 
 # Bad - Unclear, no examples
