@@ -212,10 +212,11 @@ It("should generate neuron from prompt", func() {
     Skip("Not yet implemented - TDD RED phase")
 
     session := RunCortex("generate-neuron",
-        "--prompt", "Check if nginx is running")
+        "--prompt", "Find which process is using port 8080 and show the full command with PID")
 
     Eventually(session).Should(gexec.Exit(0))
     Eventually(session.Out).Should(gbytes.Say("Neuron generated"))
+    Eventually(session.Out).Should(gbytes.Say("lsof"))
 })
 ```
 
@@ -231,9 +232,10 @@ It("should call OpenAI API", func() {
     Skip("Not yet implemented - TDD RED phase")
 
     generator := NewGenerator("openai")
-    result := generator.Generate("Check nginx")
+    result := generator.Generate("Find which process is using port 8080 and show the full command with PID")
 
-    Expect(result.Name).To(ContainSubstring("nginx"))
+    Expect(result.Name).To(ContainSubstring("port"))
+    Expect(result.Script).To(ContainSubstring("lsof"))
 })
 ```
 
