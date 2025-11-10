@@ -1,9 +1,10 @@
 # Technical Specification: Cortex Web UI & Kubernetes Deployment
 
-**Version:** 1.0
+**Version:** 1.1
 **Status:** Draft
 **Author:** Cortex Core Team
-**Last Updated:** 2025-01-07
+**Last Updated:** 2025-11-07
+**Dependencies:** Updated to latest stable open source versions (November 2025)
 
 ---
 
@@ -895,6 +896,7 @@ stringData:
 
 ```yaml
 # k8s/postgres.yaml
+# Updated November 2025 - Using PostgreSQL 18 (latest stable)
 apiVersion: v1
 kind: Service
 metadata:
@@ -927,7 +929,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:16-alpine
+          image: postgres:18-alpine  # PostgreSQL 18 (Sep 2025 release)
           ports:
             - containerPort: 5432
           env:
@@ -1075,6 +1077,7 @@ spec:
 
 ```yaml
 # k8s/ingress.yaml
+# Updated November 2025 - Using Kubernetes v1.34 API
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -1197,6 +1200,8 @@ autoscaling:
 ### Quick Deployment Guide
 
 ```bash
+# Prerequisites: Kubernetes v1.34+ cluster, kubectl, Helm 3.x
+
 # 1. Install with Helm
 helm repo add cortex https://charts.cortex.dev
 helm repo update
@@ -1212,9 +1217,12 @@ kubectl create secret generic cortex-secrets \
   --from-literal=admin-password=$(openssl rand -base64 16) \
   -n cortex
 
-# 4. Install Cortex
+# 4. Install Cortex (using latest chart)
 helm install cortex cortex/cortex \
   --namespace cortex \
+  --version latest \
+  --set image.tag=v1.0.0 \
+  --set postgresql.image.tag=18-alpine \
   --set ingress.hosts[0].host=cortex.example.com \
   --set ingress.tls[0].secretName=cortex-tls \
   --set ingress.tls[0].hosts[0]=cortex.example.com
@@ -1232,66 +1240,84 @@ kubectl get secret cortex-secrets \
 
 # 7. Access UI
 echo "https://cortex.example.com"
+
+# Verify versions
+kubectl get pods -n cortex -o jsonpath='{range .items[*]}{.spec.containers[*].image}{"\n"}{end}'
 ```
 
 ---
 
 ## Technical Stack
 
-### Frontend
+### Frontend (Updated November 2025 - Latest Stable Versions)
 
 **Framework:**
-- **React 18** with TypeScript
-- **Vite** for build tooling (fast HMR, optimized builds)
-- **React Router v6** for routing
+- **React 19.0.0** with TypeScript 5.7+
+- **Vite 6.x** for build tooling (5x faster builds, 100x faster HMR vs v5)
+- **Vitest 3.x** for testing (Vite 6 compatible)
+- **React Router v7** for routing
 
 **State Management:**
-- **Zustand** - Lightweight, simpler than Redux
-- **TanStack Query** - Server state management, caching
+- **Zustand 5.x** - Lightweight, simpler than Redux
+- **TanStack Query v5** - Server state management, caching
 
 **UI Components:**
-- **Tailwind CSS** - Utility-first styling
-- **Radix UI** - Accessible primitives (headless)
-- **Lucide React** - Icon library
+- **Tailwind CSS v4.0** - Complete rewrite with P3 colors, cascade layers, @property
+- **Radix UI (latest)** - Accessible primitives (headless components)
+- **Lucide React** - Icon library (tree-shakeable, 1000+ icons)
 
 **Real-time:**
-- **WebSocket** - Live log streaming
+- **WebSocket** (native browser API) - Live log streaming
 - **Server-Sent Events (SSE)** - Dashboard updates
 
 **Visualization:**
-- **Recharts** - Dashboard charts
-- **React Flow** - DAG editor for synapse builder
+- **Recharts 2.x** - Dashboard charts
+- **React Flow 12.x** - DAG editor for synapse builder
 
 **PWA:**
-- **Workbox** - Service worker generation
+- **Workbox 7.x** - Service worker generation
 - **Offline storage** - IndexedDB for cached data
 
-### Backend
+**Build Requirements:**
+- **Node.js 24.x LTS** (Krypton) - Active LTS, supported until April 2028
+- **npm 10.x** or **pnpm 9.x**
+- **TypeScript 5.7+**
+
+### Backend (Updated November 2025 - Latest Stable Versions)
 
 **Framework:**
-- **Go 1.22+** with standard library
-- **Chi Router** - Lightweight HTTP router
-- **gorilla/websocket** - WebSocket support
+- **Go 1.25.4** (released November 5, 2025) - Latest stable
+  - DWARF v5 debug info (smaller binaries, faster linking)
+  - Container-aware GOMAXPROCS
+  - Experimental GC improvements
+- **Chi Router v5** - Lightweight HTTP router
+- **gorilla/websocket v1.5+** - WebSocket support
 
 **API:**
 - **REST** - CRUD operations (JSON)
 - **WebSocket** - Real-time updates
-- **OpenAPI 3.0** - API documentation (generated)
+- **OpenAPI 3.1** - API documentation (generated with swag)
 
 **Database:**
-- **SQLite** - Local/development mode
-- **PostgreSQL 16** - Production/Kubernetes mode
-- **GORM** - ORM for database operations
+- **SQLite 3.46+** - Local/development mode
+- **PostgreSQL 18** (released September 2025) - Production/Kubernetes mode
+  - 3x I/O performance improvements
+  - OAuth 2.0 authentication support
+  - Virtual generated columns
+  - Native uuidv7() function
+- **GORM v2** - ORM for database operations
 
 **Authentication:**
-- **JWT** - Stateless auth tokens
-- **bcrypt** - Password hashing
+- **JWT (golang-jwt/jwt v5)** - Stateless auth tokens
+- **bcrypt** - Password hashing (cost 12+)
 - **OAuth 2.0** - SSO integration (optional)
 
 **Observability:**
 - **Prometheus** - Metrics export
-- **OpenTelemetry** - Distributed tracing
-- **Structured logging** - JSON logs via zerolog
+- **OpenTelemetry Go v1.32+** - Distributed tracing
+  - File-based configuration support
+  - Upgraded instrumentation
+- **zerolog v1.33+** - Structured JSON logging
 
 ---
 

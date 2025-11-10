@@ -1,9 +1,10 @@
 # Technical Specification: AI-Powered Neuron Generation
 
-**Version:** 1.0
+**Version:** 1.1
 **Status:** Draft
 **Author:** Cortex Core Team
-**Last Updated:** 2025-01-07
+**Last Updated:** 2025-11-07
+**Dependencies:** Updated to latest stable open source versions (November 2025)
 
 ---
 
