@@ -44,31 +44,39 @@ export default defineConfig({
   },
 
   /* Configure projects for major browsers */
+  /* Note: Only Chromium installed to optimize test speed and disk space */
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
 
+    /* Disabled - Firefox not installed (uncomment and run: npx playwright install firefox)
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
+    */
 
+    /* Disabled - WebKit not installed (uncomment and run: npx playwright install webkit)
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
+    */
 
-    /* Mobile viewports */
+    /* Mobile viewports - Chromium engine */
     {
       name: 'Mobile Chrome',
       use: { ...devices['Pixel 5'] },
     },
+
+    /* Disabled - Mobile Safari requires WebKit (uncomment and run: npx playwright install webkit)
     {
       name: 'Mobile Safari',
       use: { ...devices['iPhone 12'] },
     },
+    */
   ],
 
   /* Run local dev server before tests (when available) */
