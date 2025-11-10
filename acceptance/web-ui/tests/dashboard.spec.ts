@@ -12,8 +12,6 @@ test.describe('Dashboard', () => {
   });
 
   test('should load in under 2 seconds', async ({ page }) => {
-    test.skip(true, 'Dashboard not yet implemented - TDD RED phase');
-
     const startTime = Date.now();
     await page.goto('/');
     await page.waitForLoadState('networkidle');
@@ -23,8 +21,6 @@ test.describe('Dashboard', () => {
   });
 
   test('should display neuron library', async ({ page }) => {
-    test.skip(true, 'Neuron library not yet implemented - TDD RED phase');
-
     await expect(page.getByText('Neuron Library')).toBeVisible();
 
     const neuronCards = page.locator('[data-testid="neuron-card"]');
@@ -32,16 +28,12 @@ test.describe('Dashboard', () => {
   });
 
   test('should display system metrics', async ({ page }) => {
-    test.skip(true, 'System metrics not yet implemented - TDD RED phase');
-
     await expect(page.getByText('CPU')).toBeVisible();
     await expect(page.getByText('Memory')).toBeVisible();
     await expect(page.getByText('Disk')).toBeVisible();
   });
 
   test('should be responsive on mobile devices', async ({ page }) => {
-    test.skip(true, 'Mobile responsiveness not yet implemented - TDD RED phase');
-
     // Set viewport to iPhone dimensions
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
@@ -53,8 +45,6 @@ test.describe('Dashboard', () => {
 
 test.describe('Neuron Execution', () => {
   test('should execute neuron and show real-time logs', async ({ page }) => {
-    test.skip(true, 'Real-time logs not yet implemented - TDD RED phase');
-
     await page.goto('/');
 
     // Click neuron to execute
@@ -70,8 +60,6 @@ test.describe('Neuron Execution', () => {
   });
 
   test('should display execution status updates', async ({ page }) => {
-    test.skip(true, 'Status updates not yet implemented - TDD RED phase');
-
     await page.goto('/');
     await page.click('[data-testid="neuron-card"]:first-child');
     await page.click('button:has-text("Execute")');
@@ -86,8 +74,6 @@ test.describe('Neuron Execution', () => {
 
 test.describe('Visual Synapse Builder', () => {
   test('should allow drag-and-drop neuron placement', async ({ page }) => {
-    test.skip(true, 'Synapse builder not yet implemented - TDD RED phase');
-
     await page.goto('/synapse-builder');
 
     // Drag neuron from palette to canvas
@@ -101,8 +87,6 @@ test.describe('Visual Synapse Builder', () => {
   });
 
   test('should save synapse configuration', async ({ page }) => {
-    test.skip(true, 'Synapse save not yet implemented - TDD RED phase');
-
     await page.goto('/synapse-builder');
 
     // Build synapse
@@ -115,8 +99,6 @@ test.describe('Visual Synapse Builder', () => {
 
 test.describe('Accessibility', () => {
   test('should have proper ARIA labels', async ({ page }) => {
-    test.skip(true, 'ARIA labels not yet implemented - TDD RED phase');
-
     await page.goto('/');
 
     await expect(page.locator('[aria-label="Main navigation"]')).toBeVisible();
@@ -124,8 +106,6 @@ test.describe('Accessibility', () => {
   });
 
   test('should support keyboard navigation', async ({ page }) => {
-    test.skip(true, 'Keyboard navigation not yet implemented - TDD RED phase');
-
     await page.goto('/');
 
     // Tab through elements
@@ -137,8 +117,6 @@ test.describe('Accessibility', () => {
 
 test.describe('WebSocket Performance', () => {
   test('should maintain latency under 100ms', async ({ page }) => {
-    test.skip(true, 'WebSocket not yet implemented - TDD RED phase');
-
     await page.goto('/');
 
     // Measure WebSocket round-trip time
