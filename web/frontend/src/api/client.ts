@@ -94,7 +94,7 @@ class ApiClient {
 
   // System API
   async getSystemMetrics(): Promise<SystemMetrics> {
-    const response = await this.client.get<SystemMetrics>('/system/metrics');
+    const response = await this.client.get<SystemMetrics>('/metrics');
     return response.data;
   }
 
