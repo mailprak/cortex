@@ -20,17 +20,18 @@ const Navigation: React.FC<{ isMobileMenuOpen: boolean; onToggleMobileMenu: () =
     <>
       {/* Desktop Navigation */}
       <nav
-        className="hidden md:flex items-center gap-6"
+        className="hidden md:flex items-center gap-8"
         aria-label="Main navigation"
       >
         {navItems.map((item) => (
           <Link
             key={item.path}
             to={item.path}
-            className="flex items-center gap-2 text-white hover:text-gray-200 transition-colors"
+            className="group flex items-center gap-2 text-text-secondary hover:text-text-primary transition-all duration-300"
           >
-            <item.icon className="w-5 h-5" />
-            <span>{item.label}</span>
+            <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            <span className="font-medium">{item.label}</span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-purple group-hover:w-full transition-all duration-300"></span>
           </Link>
         ))}
       </nav>
@@ -38,7 +39,7 @@ const Navigation: React.FC<{ isMobileMenuOpen: boolean; onToggleMobileMenu: () =
       {/* Mobile Menu Button */}
       <button
         onClick={onToggleMobileMenu}
-        className="md:hidden text-white"
+        className="md:hidden text-white hover:text-accent-cyan transition-colors"
         aria-label="Toggle mobile menu"
       >
         {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -46,17 +47,17 @@ const Navigation: React.FC<{ isMobileMenuOpen: boolean; onToggleMobileMenu: () =
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-primary-600 shadow-lg z-50">
-          <nav className="flex flex-col p-4 gap-2" aria-label="Mobile navigation">
+        <div className="md:hidden absolute top-16 left-0 right-0 glass shadow-2xl z-50 animate-slide-in">
+          <nav className="flex flex-col p-6 gap-3" aria-label="Mobile navigation">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={onToggleMobileMenu}
-                className="flex items-center gap-3 text-white hover:bg-primary-700 px-4 py-3 rounded-lg transition-colors"
+                className="flex items-center gap-3 text-text-secondary hover:text-text-primary hover:bg-background-card px-4 py-3 rounded-xl transition-all duration-300"
               >
                 <item.icon className="w-5 h-5" />
-                <span>{item.label}</span>
+                <span className="font-medium">{item.label}</span>
               </Link>
             ))}
           </nav>
@@ -68,11 +69,11 @@ const Navigation: React.FC<{ isMobileMenuOpen: boolean; onToggleMobileMenu: () =
 
 const Settings: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">Settings</h1>
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <p className="text-gray-600">Settings page coming soon...</p>
+    <div className="min-h-screen bg-background-navy">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 className="text-3xl font-heading font-bold text-text-primary mb-8 gradient-text">Settings</h1>
+        <div className="glass rounded-xl shadow-card p-8">
+          <p className="text-text-secondary text-lg">Settings page coming soon...</p>
         </div>
       </div>
     </div>
@@ -100,15 +101,18 @@ const SynapseBuilderPage: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <p className="text-gray-600">Loading...</p>
+      <div className="flex items-center justify-center h-screen bg-background-navy">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-text-secondary text-lg">Loading synapse builder...</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-background-navy">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <SynapseBuilder neurons={neurons} />
       </div>
     </div>
@@ -136,15 +140,19 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <div className="min-h-screen bg-gray-100">
-        {/* Header */}
-        <header className="bg-gradient-to-r from-primary-600 to-primary-700 shadow-lg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
+      <div className="min-h-screen bg-background-navy">
+        {/* Header with gradient */}
+        <header className="relative bg-gradient-to-r from-background-navy via-primary-900/30 to-background-navy border-b border-primary-500/20 shadow-2xl">
+          <div className="absolute inset-0 bg-gradient-purple opacity-10"></div>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-20">
               <div className="flex items-center">
-                <Link to="/" className="flex items-center gap-2">
-                  <Network className="w-8 h-8 text-white" />
-                  <h1 className="text-xl font-bold text-white">Cortex</h1>
+                <Link to="/" className="group flex items-center gap-3 hover:scale-105 transition-transform duration-300">
+                  <div className="relative">
+                    <Network className="w-10 h-10 text-white group-hover:text-accent-cyan transition-colors" />
+                    <div className="absolute inset-0 bg-accent-cyan blur-xl opacity-0 group-hover:opacity-50 transition-opacity"></div>
+                  </div>
+                  <h1 className="text-2xl font-heading font-bold gradient-text">Cortex</h1>
                 </Link>
               </div>
               <Navigation

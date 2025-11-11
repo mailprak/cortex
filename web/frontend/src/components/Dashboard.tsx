@@ -57,10 +57,13 @@ export const Dashboard: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="text-center">
-          <Loader className="w-12 h-12 animate-spin mx-auto mb-4 text-primary-500" />
-          <p className="text-gray-600">Loading dashboard...</p>
+      <div className="flex items-center justify-center h-screen bg-background-navy">
+        <div className="text-center animate-fade-in">
+          <div className="relative w-20 h-20 mx-auto mb-6">
+            <Loader className="w-20 h-20 animate-spin text-primary-500" />
+            <div className="absolute inset-0 bg-primary-500 blur-2xl opacity-30 animate-pulse-slow"></div>
+          </div>
+          <p className="text-text-secondary text-lg font-medium">Loading dashboard...</p>
         </div>
       </div>
     );
@@ -68,14 +71,14 @@ export const Dashboard: React.FC = () => {
 
   if (error) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md">
-          <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
-          <h3 className="text-lg font-semibold text-red-900 mb-2">Error Loading Dashboard</h3>
-          <p className="text-red-700 mb-4">{error}</p>
+      <div className="flex items-center justify-center h-screen bg-background-navy">
+        <div className="glass border-2 border-red-500/30 rounded-2xl p-8 max-w-md animate-scale-in">
+          <AlertCircle className="w-16 h-16 text-red-400 mx-auto mb-6 animate-pulse" />
+          <h3 className="text-2xl font-heading font-bold text-text-primary mb-3">Error Loading Dashboard</h3>
+          <p className="text-red-300 mb-6 text-lg">{error}</p>
           <button
             onClick={fetchNeurons}
-            className="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors"
+            className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-pill font-medium shadow-glow-purple transition-all duration-300 hover:scale-105"
           >
             Retry
           </button>
@@ -85,19 +88,20 @@ export const Dashboard: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div className="min-h-screen bg-background-navy">
+      {/* Header with gradient accent */}
+      <header className="relative glass border-b border-primary-500/20">
+        <div className="absolute inset-0 bg-gradient-purple opacity-5"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-gray-900">Cortex Dashboard</h1>
+            <h1 className="text-3xl font-heading font-bold gradient-text">Cortex Dashboard</h1>
             <button
               onClick={fetchNeurons}
               disabled={refreshing}
-              className="flex items-center gap-2 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors disabled:opacity-50"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-purple hover:shadow-glow-purple text-white rounded-pill font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
               aria-label="Refresh dashboard"
             >
-              <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
+              <RefreshCw className={`w-5 h-5 ${refreshing ? 'animate-spin' : ''}`} />
               <span>Refresh</span>
             </button>
           </div>
@@ -105,37 +109,45 @@ export const Dashboard: React.FC = () => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* System Metrics */}
-        <section className="mb-8">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">System Metrics</h2>
+        <section className="mb-12 animate-fade-in">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-8 w-1 bg-gradient-purple rounded-full"></div>
+            <h2 className="text-2xl font-heading font-bold text-text-primary">System Metrics</h2>
+          </div>
           <SystemMetrics />
         </section>
 
         {/* Neuron Library */}
-        <section className="mb-8">
-          <h2
-            className="text-lg font-semibold text-gray-900 mb-4"
-            aria-label="Neuron library"
-          >
-            Neuron Library
-          </h2>
+        <section className="mb-12 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-8 w-1 bg-gradient-cyan rounded-full"></div>
+            <h2
+              className="text-2xl font-heading font-bold text-text-primary"
+              aria-label="Neuron library"
+            >
+              Neuron Library
+            </h2>
+          </div>
           {neurons.length === 0 ? (
-            <div className="bg-white rounded-lg shadow-md p-12 text-center">
-              <p className="text-gray-500 mb-4">No neurons available</p>
-              <button className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg transition-colors">
+            <div className="glass rounded-2xl shadow-card p-16 text-center border border-primary-500/20">
+              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-purple opacity-20"></div>
+              <p className="text-text-secondary text-xl mb-8">No neurons available</p>
+              <button className="bg-gradient-purple hover:shadow-glow-purple text-white px-8 py-4 rounded-pill font-medium text-lg transition-all duration-300 hover:scale-105">
                 Create Your First Neuron
               </button>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {neurons.map((neuron) => (
-                <NeuronCard
-                  key={neuron.id}
-                  neuron={neuron}
-                  onExecute={handleNeuronExecute}
-                  onStatusChange={handleStatusChange}
-                />
+              {neurons.map((neuron, index) => (
+                <div key={neuron.id} className="animate-scale-in" style={{ animationDelay: `${index * 0.05}s` }}>
+                  <NeuronCard
+                    neuron={neuron}
+                    onExecute={handleNeuronExecute}
+                    onStatusChange={handleStatusChange}
+                  />
+                </div>
               ))}
             </div>
           )}
@@ -143,8 +155,11 @@ export const Dashboard: React.FC = () => {
 
         {/* Execution Logs */}
         {selectedExecution && (
-          <section>
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Live Execution Logs</h2>
+          <section className="animate-fade-in">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-8 w-1 bg-accent-cyan rounded-full"></div>
+              <h2 className="text-2xl font-heading font-bold text-text-primary">Live Execution Logs</h2>
+            </div>
             <ExecutionLogs executionId={selectedExecution} />
           </section>
         )}
