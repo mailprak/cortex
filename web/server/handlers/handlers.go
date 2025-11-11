@@ -10,6 +10,7 @@ import (
 	"github.com/anoop2811/cortex/web/server/models"
 	"github.com/anoop2811/cortex/web/server/services"
 	"github.com/google/uuid"
+	"github.com/gorilla/mux"
 	"github.com/gorilla/websocket"
 )
 
@@ -25,6 +26,7 @@ var upgrader = websocket.Upgrader{
 type Handlers struct {
 	logger           *logger.StandardLogger
 	neuronService    *services.NeuronService
+	synapseService   *services.SynapseService
 	executionService *services.ExecutionService
 	wsHub            *services.WebSocketHub
 }
@@ -37,6 +39,7 @@ func NewHandlers(log *logger.StandardLogger) *Handlers {
 	return &Handlers{
 		logger:           log,
 		neuronService:    services.NewNeuronService(log),
+		synapseService:   services.NewSynapseService(),
 		executionService: services.NewExecutionService(log, hub),
 		wsHub:            hub,
 	}
@@ -56,7 +59,7 @@ func (h *Handlers) ListNeurons(w http.ResponseWriter, r *http.Request) {
 
 // ListSynapses handles GET /api/synapses
 func (h *Handlers) ListSynapses(w http.ResponseWriter, r *http.Request) {
-	synapses, err := h.neuronService.ListSynapses()
+	synapses, err := h.synapseService.ListSynapses()
 	if err != nil {
 		h.logger.Error(err, "Failed to list synapses")
 		respondJSON(w, http.StatusInternalServerError, map[string]string{"error": err.Error()})
@@ -64,6 +67,86 @@ func (h *Handlers) ListSynapses(w http.ResponseWriter, r *http.Request) {
 	}
 
 	respondJSON(w, http.StatusOK, synapses)
+}
+
+// CreateSynapse handles POST /api/synapses
+func (h *Handlers) CreateSynapse(w http.ResponseWriter, r *http.Request) {
+	var synapse models.Synapse
+	if err := json.NewDecoder(r.Body).Decode(&synapse); err != nil {
+		respondJSON(w, http.StatusBadRequest, map[string]string{"error": "Invalid request body"})
+		return
+	}
+
+	created, err := h.synapseService.CreateSynapse(&synapse)
+	if err != nil {
+		h.logger.Error(err, "Failed to create synapse")
+		respondJSON(w, http.StatusBadRequest, map[string]string{"error": err.Error()})
+		return
+	}
+
+	respondJSON(w, http.StatusCreated, created)
+}
+
+// GetSynapse handles GET /api/synapses/{id}
+func (h *Handlers) GetSynapse(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id := vars["id"]
+	if id == "" {
+		respondJSON(w, http.StatusBadRequest, map[string]string{"error": "Synapse ID is required"})
+		return
+	}
+
+	synapse, err := h.synapseService.GetSynapse(id)
+	if err != nil {
+		respondJSON(w, http.StatusNotFound, map[string]string{"error": err.Error()})
+		return
+	}
+
+	respondJSON(w, http.StatusOK, synapse)
+}
+
+// UpdateSynapse handles PUT /api/synapses/{id}
+func (h *Handlers) UpdateSynapse(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id := vars["id"]
+	if id == "" {
+		respondJSON(w, http.StatusBadRequest, map[string]string{"error": "Synapse ID is required"})
+		return
+	}
+
+	var synapse models.Synapse
+	if err := json.NewDecoder(r.Body).Decode(&synapse); err != nil {
+		respondJSON(w, http.StatusBadRequest, map[string]string{"error": "Invalid request body"})
+		return
+	}
+
+	synapse.ID = id
+	updated, err := h.synapseService.UpdateSynapse(&synapse)
+	if err != nil {
+		h.logger.Error(err, "Failed to update synapse")
+		respondJSON(w, http.StatusNotFound, map[string]string{"error": err.Error()})
+		return
+	}
+
+	respondJSON(w, http.StatusOK, updated)
+}
+
+// DeleteSynapse handles DELETE /api/synapses/{id}
+func (h *Handlers) DeleteSynapse(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id := vars["id"]
+	if id == "" {
+		respondJSON(w, http.StatusBadRequest, map[string]string{"error": "Synapse ID is required"})
+		return
+	}
+
+	err := h.synapseService.DeleteSynapse(id)
+	if err != nil {
+		respondJSON(w, http.StatusNotFound, map[string]string{"error": err.Error()})
+		return
+	}
+
+	w.WriteHeader(http.StatusNoContent)
 }
 
 // Execute handles POST /api/execute

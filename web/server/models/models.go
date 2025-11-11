@@ -10,12 +10,33 @@ type Neuron struct {
 	Path        string `json:"path"`
 }
 
-// Synapse represents a synapse workflow
+// SynapseNode represents a node in the visual synapse builder
+type SynapseNode struct {
+	ID       string            `json:"id"`
+	Type     string            `json:"type"` // "neuron"
+	NeuronID string            `json:"neuronId"`
+	Position map[string]int    `json:"position"` // x, y coordinates
+	Data     map[string]string `json:"data"`     // label, description, etc.
+}
+
+// SynapseConnection represents a connection between nodes
+type SynapseConnection struct {
+	ID     string `json:"id"`
+	Source string `json:"source"` // source node ID
+	Target string `json:"target"` // target node ID
+}
+
+// Synapse represents a synapse workflow with visual builder support
 type Synapse struct {
-	Name        string   `json:"name"`
-	Description string   `json:"description"`
-	Path        string   `json:"path"`
-	Neurons     []string `json:"neurons"`
+	ID          string               `json:"id"`
+	Name        string               `json:"name"`
+	Description string               `json:"description"`
+	Path        string               `json:"path,omitempty"`
+	Nodes       []SynapseNode        `json:"nodes"`
+	Connections []SynapseConnection  `json:"connections"`
+	CreatedAt   time.Time            `json:"createdAt"`
+	UpdatedAt   time.Time            `json:"updatedAt"`
+	Neurons     []string             `json:"neurons,omitempty"` // Deprecated, kept for backward compatibility
 }
 
 // ExecuteRequest represents an execution request

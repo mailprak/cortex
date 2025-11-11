@@ -63,6 +63,10 @@ func (s *Server) setupRoutes() {
 	// API routes
 	s.router.HandleFunc("/api/neurons", h.ListNeurons).Methods("GET")
 	s.router.HandleFunc("/api/synapses", h.ListSynapses).Methods("GET")
+	s.router.HandleFunc("/api/synapses", h.CreateSynapse).Methods("POST")
+	s.router.HandleFunc("/api/synapses/{id}", h.GetSynapse).Methods("GET")
+	s.router.HandleFunc("/api/synapses/{id}", h.UpdateSynapse).Methods("PUT")
+	s.router.HandleFunc("/api/synapses/{id}", h.DeleteSynapse).Methods("DELETE")
 	s.router.HandleFunc("/api/execute", h.Execute).Methods("POST")
 	s.router.HandleFunc("/api/metrics", h.GetMetrics).Methods("GET")
 	s.router.HandleFunc("/api/executions", h.ListExecutions).Methods("GET")
@@ -138,4 +142,9 @@ func (s *Server) Shutdown() error {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 	return s.httpServer.Shutdown(ctx)
+}
+
+// Router returns the server's HTTP router for testing purposes
+func (s *Server) Router() *mux.Router {
+	return s.router
 }
