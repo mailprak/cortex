@@ -22,7 +22,18 @@ help: ## Show this help message
 	@echo 'Available targets:'
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "  %-20s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-build-local: ## Build cortex binary locally
+build-frontend: ## Build frontend and copy to server
+	@echo "Building frontend..."
+	@if [ -d "web/frontend" ]; then \
+		cd web/frontend && npm run build && \
+		rm -rf ../server/frontend/dist && \
+		cp -r dist ../server/frontend/ && \
+		echo "✓ Frontend built and copied to server"; \
+	else \
+		echo "⚠️  Frontend directory not found, skipping frontend build"; \
+	fi
+
+build-local: build-frontend ## Build cortex binary locally with frontend
 	$(GO) build -o $(BINARY_NAME) .
 	@echo "✓ Built $(BINARY_NAME)"
 
