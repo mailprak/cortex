@@ -68,9 +68,21 @@ type Execution struct {
 
 // SystemMetrics represents system metrics
 type SystemMetrics struct {
-	CPU    float64 `json:"cpu"`    // percentage
-	Memory float64 `json:"memory"` // percentage
-	Disk   float64 `json:"disk"`   // percentage
+	CPU struct {
+		Usage float64 `json:"usage"`
+		Cores int     `json:"cores"`
+	} `json:"cpu"`
+	Memory struct {
+		Used       uint64  `json:"used"`
+		Total      uint64  `json:"total"`
+		Percentage float64 `json:"percentage"`
+	} `json:"memory"`
+	Disk struct {
+		Used       uint64  `json:"used"`
+		Total      uint64  `json:"total"`
+		Percentage float64 `json:"percentage"`
+	} `json:"disk"`
+	Uptime int `json:"uptime"`
 }
 
 // WebSocketMessage represents a WebSocket message

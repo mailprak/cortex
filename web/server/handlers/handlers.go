@@ -212,17 +212,30 @@ func getSystemMetrics() models.SystemMetrics {
 	var m runtime.MemStats
 	runtime.ReadMemStats(&m)
 
-	// Calculate memory usage percentage
-	memPercent := float64(m.Alloc) / float64(m.Sys) * 100
+	// Get disk stats
+	diskTotal, diskUsed, diskPercent := getDiskUsage()
 
-	// Get disk usage (simplified)
-	diskPercent := getDiskUsage()
+	// Build metrics response
+	metrics := models.SystemMetrics{}
 
-	return models.SystemMetrics{
-		CPU:    getCPUUsage(),
-		Memory: memPercent,
-		Disk:   diskPercent,
-	}
+	// CPU metrics
+	metrics.CPU.Usage = getCPUUsage()
+	metrics.CPU.Cores = runtime.NumCPU()
+
+	// Memory metrics
+	metrics.Memory.Used = m.Alloc
+	metrics.Memory.Total = m.Sys
+	metrics.Memory.Percentage = float64(m.Alloc) / float64(m.Sys) * 100
+
+	// Disk metrics
+	metrics.Disk.Used = diskUsed
+	metrics.Disk.Total = diskTotal
+	metrics.Disk.Percentage = diskPercent
+
+	// Uptime (simplified - just return 0 for now)
+	metrics.Uptime = 0
+
+	return metrics
 }
 
 // getCPUUsage returns CPU usage (simplified implementation)
@@ -232,18 +245,19 @@ func getCPUUsage() float64 {
 	return float64(runtime.NumGoroutine()) / float64(runtime.NumCPU()) * 10
 }
 
-// getDiskUsage returns disk usage percentage
-func getDiskUsage() float64 {
+// getDiskUsage returns disk usage stats
+func getDiskUsage() (total uint64, used uint64, percentage float64) {
 	// Simplified implementation using syscall.Statfs
 	var stat syscall.Statfs_t
 	err := syscall.Statfs("/", &stat)
 	if err != nil {
-		return 0
+		return 0, 0, 0
 	}
 
-	total := stat.Blocks * uint64(stat.Bsize)
+	total = stat.Blocks * uint64(stat.Bsize)
 	free := stat.Bfree * uint64(stat.Bsize)
-	used := total - free
+	used = total - free
+	percentage = float64(used) / float64(total) * 100
 
-	return float64(used) / float64(total) * 100
+	return total, used, percentage
 }
