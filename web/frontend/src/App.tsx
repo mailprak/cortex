@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { Menu, X, LayoutDashboard, Network, Settings as SettingsIcon } from 'lucide-react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import { Dashboard } from './components/Dashboard';
 import { SynapseBuilder } from './components/SynapseBuilder';
 import { apiClient } from './api/client';
@@ -111,11 +113,13 @@ const SynapseBuilderPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background-navy">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <SynapseBuilder neurons={neurons} />
+    <DndProvider backend={HTML5Backend}>
+      <div className="min-h-screen bg-background-navy">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <SynapseBuilder neurons={neurons} />
+        </div>
       </div>
-    </div>
+    </DndProvider>
   );
 };
 

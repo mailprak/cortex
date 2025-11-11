@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { DndProvider, useDrag, useDrop } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import { useDrag, useDrop } from 'react-dnd';
 import { Save, Plus, Trash2, Network } from 'lucide-react';
 import { Synapse, SynapseNode, Neuron } from '../types';
 import { apiClient } from '../api/client';
@@ -142,7 +141,6 @@ export const SynapseBuilder: React.FC<SynapseBuilderProps> = ({ neurons, onSave 
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
       <div className="glass rounded-2xl shadow-card overflow-hidden border border-primary-500/20">
         {/* Header */}
         <div className="relative bg-gradient-purple">
@@ -250,6 +248,5 @@ export const SynapseBuilder: React.FC<SynapseBuilderProps> = ({ neurons, onSave 
           </div>
         </div>
       </div>
-    </DndProvider>
   );
 };
