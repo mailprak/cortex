@@ -4,6 +4,7 @@ import (
 	"context"
 	"embed"
 	"fmt"
+	"io"
 	"io/fs"
 	"net/http"
 	"time"
@@ -75,7 +76,7 @@ func (s *Server) setupRoutes() {
 	s.serveFrontend()
 }
 
-// serveFrontend serves the embedded frontend files
+// serveFrontend serves the embedded frontend files with SPA support
 func (s *Server) serveFrontend() {
 	// Get the embedded filesystem
 	frontendFS, err := fs.Sub(frontendFiles, "frontend/dist")
@@ -126,9 +127,39 @@ func (s *Server) serveFrontend() {
 		return
 	}
 
-	// Serve static files
-	fileServer := http.FileServer(http.FS(frontendFS))
-	s.router.PathPrefix("/").Handler(fileServer)
+	// SPA handler that serves index.html for all non-file routes
+	spaHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		path := r.URL.Path
+
+		// Try to open the file
+		f, err := frontendFS.Open(path[1:]) // Remove leading slash
+		if err == nil {
+			// File exists, serve it
+			f.Close()
+			http.FileServer(http.FS(frontendFS)).ServeHTTP(w, r)
+			return
+		}
+
+		// File doesn't exist, serve index.html for SPA routing
+		indexFile, err := frontendFS.Open("index.html")
+		if err != nil {
+			http.Error(w, "index.html not found", http.StatusNotFound)
+			return
+		}
+		defer indexFile.Close()
+
+		indexContent, err := io.ReadAll(indexFile)
+		if err != nil {
+			http.Error(w, "Failed to read index.html", http.StatusInternalServerError)
+			return
+		}
+
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		w.WriteHeader(http.StatusOK)
+		w.Write(indexContent)
+	})
+
+	s.router.PathPrefix("/").Handler(spaHandler)
 }
 
 // Start starts the HTTP server
