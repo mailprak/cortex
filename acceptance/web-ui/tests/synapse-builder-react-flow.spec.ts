@@ -568,7 +568,10 @@ test.describe('React Flow Synapse Builder', () => {
 });
 
 test.describe('React Flow Integration', () => {
-  test('should persist React Flow node positions on save', async ({ page, request }) => {
+  test('should persist React Flow node positions on save', async ({ page, request, isMobile }) => {
+    // Skip on mobile - drag-and-drop not reliably supported in mobile browsers
+    test.skip(isMobile, 'Drag-and-drop interactions not supported on mobile browsers');
+
     await page.goto('/synapse-builder');
     await page.waitForLoadState('networkidle');
 
