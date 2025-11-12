@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"net/http"
 	"runtime"
-	"syscall"
 
 	"github.com/anoop2811/cortex/logger"
 	"github.com/anoop2811/cortex/web/server/models"
