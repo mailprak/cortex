@@ -178,10 +178,23 @@ jobs:
           name: frontend-dist
           path: web/frontend/dist
 
+      - name: Debug - Show artifact contents
+        run: |
+          echo "=== Downloaded artifact contents ==="
+          ls -laR web/frontend/dist/ | head -50
+          echo "=== web/server/frontend/ before copy ==="
+          ls -la web/server/frontend/ || echo "Directory doesn't exist"
+
       - name: Copy frontend to server directory
         run: |
+          mkdir -p web/server/frontend
           rm -rf web/server/frontend/dist
           cp -r web/frontend/dist web/server/frontend/
+
+      - name: Debug - Verify copy succeeded
+        run: |
+          echo "=== web/server/frontend/ after copy ==="
+          ls -laR web/server/frontend/ | head -50
 
       - name: Build cortex binary
         run: go build -o cortex .
@@ -244,10 +257,23 @@ jobs:
           name: frontend-dist
           path: web/frontend/dist
 
+      - name: Debug - Show artifact contents
+        run: |
+          echo "=== Downloaded artifact contents ==="
+          ls -laR web/frontend/dist/ | head -50
+          echo "=== web/server/frontend/ before copy ==="
+          ls -la web/server/frontend/ || echo "Directory doesn't exist"
+
       - name: Copy frontend to server directory
         run: |
+          mkdir -p web/server/frontend
           rm -rf web/server/frontend/dist
           cp -r web/frontend/dist web/server/frontend/
+
+      - name: Debug - Verify copy succeeded
+        run: |
+          echo "=== web/server/frontend/ after copy ==="
+          ls -laR web/server/frontend/ | head -50
 
       - name: Build binary
         env:
