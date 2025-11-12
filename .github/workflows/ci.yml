@@ -88,6 +88,11 @@ jobs:
           name: frontend-dist
           path: web/frontend/dist
 
+      - name: Copy frontend to server directory
+        run: |
+          rm -rf web/server/frontend/dist
+          cp -r web/frontend/dist web/server/frontend/
+
       - name: Install Ginkgo v2
         run: go install github.com/onsi/ginkgo/v2/ginkgo@latest
 
@@ -129,6 +134,11 @@ jobs:
           name: frontend-dist
           path: web/frontend/dist
 
+      - name: Copy frontend to server directory
+        run: |
+          rm -rf web/server/frontend/dist
+          cp -r web/frontend/dist web/server/frontend/
+
       - name: Install Ginkgo v2
         run: go install github.com/onsi/ginkgo/v2/ginkgo@latest
 
@@ -167,6 +177,11 @@ jobs:
         with:
           name: frontend-dist
           path: web/frontend/dist
+
+      - name: Copy frontend to server directory
+        run: |
+          rm -rf web/server/frontend/dist
+          cp -r web/frontend/dist web/server/frontend/
 
       - name: Build cortex binary
         run: go build -o cortex .
@@ -228,6 +243,11 @@ jobs:
         with:
           name: frontend-dist
           path: web/frontend/dist
+
+      - name: Copy frontend to server directory
+        run: |
+          rm -rf web/server/frontend/dist
+          cp -r web/frontend/dist web/server/frontend/
 
       - name: Build binary
         env:
