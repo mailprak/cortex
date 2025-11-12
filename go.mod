@@ -4,6 +4,9 @@ go 1.25
 
 require (
 	github.com/fatih/color v1.10.0
+	github.com/google/uuid v1.6.0
+	github.com/gorilla/mux v1.8.1
+	github.com/gorilla/websocket v1.5.3
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/onsi/ginkgo/v2 v2.27.2
 	github.com/onsi/gomega v1.38.2

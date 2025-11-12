@@ -1,0 +1,281 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  # Build frontend once and share across all jobs
+  frontend-build:
+    name: Build Frontend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: web/frontend/package-lock.json
+
+      - name: Install frontend dependencies
+        working-directory: web/frontend
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: web/frontend
+        run: npm run build
+
+      - name: Upload frontend build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: web/frontend/dist/
+          retention-days: 1
+
+  # Temporarily disabled until golangci-lint supports Go 1.25
+  # lint:
+  #   name: Lint
+  #   runs-on: ubuntu-latest
+  #   needs: [frontend-build]
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+  #
+  #     - name: Set up Go
+  #       uses: actions/setup-go@v5
+  #       with:
+  #         go-version: '1.25'
+  #         cache: true
+  #
+  #     - name: Download frontend build
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: frontend-dist
+  #         path: web/frontend/dist
+  #
+  #     - name: Run golangci-lint
+  #       uses: golangci/golangci-lint-action@v6
+  #       with:
+  #         version: latest
+  #         args: --timeout=5m
+
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    needs: [frontend-build]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+          cache: true
+
+      - name: Download frontend build
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist
+          path: web/frontend/dist
+
+
+      - name: Copy frontend to server directory
+        run: |
+          mkdir -p web/server/frontend
+          rm -rf web/server/frontend/dist
+          cp -r web/frontend/dist web/server/frontend/
+
+
+      - name: Install Ginkgo v2
+        run: go install github.com/onsi/ginkgo/v2/ginkgo@latest
+
+      - name: Get dependencies
+        run: go mod download
+
+      - name: Run unit tests
+        run: make test-unit
+
+      - name: Generate coverage
+        run: |
+          mkdir -p coverage
+          go test -v -race -coverprofile=coverage/coverage.out -covermode=atomic ./...
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage/coverage.out
+          flags: unittests
+          fail_ci_if_error: false
+
+  acceptance-tests-cli:
+    name: CLI Acceptance Tests
+    runs-on: ubuntu-latest
+    needs: [frontend-build]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+          cache: true
+
+      - name: Download frontend build
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist
+          path: web/frontend/dist
+
+
+      - name: Copy frontend to server directory
+        run: |
+          mkdir -p web/server/frontend
+          rm -rf web/server/frontend/dist
+          cp -r web/frontend/dist web/server/frontend/
+
+
+      - name: Install Ginkgo v2
+        run: go install github.com/onsi/ginkgo/v2/ginkgo@latest
+
+      - name: Get dependencies
+        run: go mod download
+
+      - name: Build cortex
+        run: go build -o cortex .
+
+      - name: Run CLI acceptance tests
+        run: make test-acceptance-cli
+
+  acceptance-tests-web:
+    name: Web UI E2E Tests
+    runs-on: ubuntu-latest
+    needs: [frontend-build]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+          cache: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: acceptance/web-ui/package-lock.json
+
+      - name: Download frontend build
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist
+          path: web/frontend/dist
+
+
+      - name: Copy frontend to server directory
+        run: |
+          mkdir -p web/server/frontend
+          rm -rf web/server/frontend/dist
+          cp -r web/frontend/dist web/server/frontend/
+
+
+      - name: Build cortex binary
+        run: go build -o cortex .
+
+      - name: Install Playwright dependencies
+        working-directory: acceptance/web-ui
+        run: |
+          npm ci
+          npx playwright install chromium --with-deps
+
+      - name: Start cortex server in background
+        run: |
+          ./cortex ui &
+          echo $! > cortex.pid
+          sleep 5
+
+      - name: Run Web UI E2E tests
+        run: make test-acceptance-web
+
+      - name: Stop cortex server
+        if: always()
+        run: |
+          if [ -f cortex.pid ]; then
+            kill $(cat cortex.pid) || true
+            rm cortex.pid
+          fi
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: acceptance/web-ui/playwright-report/
+          retention-days: 30
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: [frontend-build, unit-tests, acceptance-tests-cli, acceptance-tests-web]
+    strategy:
+      matrix:
+        goos: [linux, darwin, windows]
+        goarch: [amd64, arm64]
+        exclude:
+          - goos: windows
+            goarch: arm64
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+          cache: true
+
+      - name: Download frontend build
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist
+          path: web/frontend/dist
+
+
+      - name: Copy frontend to server directory
+        run: |
+          mkdir -p web/server/frontend
+          rm -rf web/server/frontend/dist
+          cp -r web/frontend/dist web/server/frontend/
+
+
+      - name: Build binary
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+        run: |
+          OUTPUT_NAME=cortex-${{ matrix.goos }}-${{ matrix.goarch }}
+          if [ "${{ matrix.goos }}" = "windows" ]; then
+            OUTPUT_NAME="${OUTPUT_NAME}.exe"
+          fi
+          CGO_ENABLED=0 go build -ldflags="-s -w" -o "${OUTPUT_NAME}" .
+          echo "Built: ${OUTPUT_NAME}"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cortex-${{ matrix.goos }}-${{ matrix.goarch }}
+          path: cortex-*
+          retention-days: 7

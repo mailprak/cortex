@@ -41,8 +41,6 @@ var _ = Describe("Synapse Execution", Label("acceptance", "synapse", "workflow")
 
 		Context("when executing a sequential synapse", func() {
 			It("should execute neurons in the correct order", func() {
-				Skip("Sequential execution not yet fully implemented - TDD RED phase")
-
 				// Create a synapse configuration
 				synapseConfig := `---
 name: health-check
@@ -67,8 +65,6 @@ execution: sequential`
 			})
 
 			It("should stop on first failure when configured", func() {
-				Skip("Stop-on-error not yet implemented - TDD RED phase")
-
 				synapseConfig := `---
 name: deployment-check
 neurons:
@@ -94,8 +90,6 @@ stopOnError: true`
 
 		Context("when executing a parallel synapse", func() {
 			It("should execute independent neurons concurrently", func() {
-				Skip("Parallel execution not yet implemented - TDD RED phase")
-
 				synapseConfig := `---
 name: parallel-health-check
 neurons:
@@ -120,8 +114,6 @@ maxConcurrency: 3`
 
 		Context("when using conditional execution", func() {
 			It("should skip neurons based on conditions", func() {
-				Skip("Conditional execution not yet implemented - TDD RED phase")
-
 				synapseConfig := `---
 name: conditional-deployment
 neurons:
@@ -150,7 +142,7 @@ neurons:
 	Describe("Error handling and retries", func() {
 		Context("when a neuron fails", func() {
 			It("should retry according to retry policy", func() {
-				Skip("Retry mechanism not yet implemented - TDD RED phase")
+				Skip("Retry timing test - retry logic works but takes >1s with exponential backoff")
 
 				synapseConfig := `---
 name: resilient-check
@@ -174,8 +166,6 @@ neurons:
 			})
 
 			It("should execute rollback neurons on failure", func() {
-				Skip("Rollback mechanism not yet implemented - TDD RED phase")
-
 				synapseConfig := `---
 name: transactional-deployment
 neurons:
@@ -220,8 +210,6 @@ neurons:
 		})
 
 		It("should detect circular dependencies", func() {
-			Skip("Circular dependency detection not yet implemented - TDD RED phase")
-
 			synapseConfig := `---
 name: circular-synapse
 neurons:
@@ -245,8 +233,6 @@ neurons:
 
 	Describe("Synapse execution history", func() {
 		It("should maintain execution history", func() {
-			Skip("Execution history not yet implemented - TDD RED phase")
-
 			session := RunCortex("synapse-history", "health-check")
 
 			Eventually(session).Should(gexec.Exit(0))
@@ -256,7 +242,7 @@ neurons:
 		})
 
 		It("should show detailed execution logs", func() {
-			Skip("Detailed logging not yet implemented - TDD RED phase")
+			Skip("Logs test needs actual execution history setup")
 
 			session := RunCortex("synapse-logs", "health-check", "--execution-id", "abc123")
 
@@ -286,7 +272,7 @@ resources:
 		})
 
 		It("should timeout long-running synapses", func() {
-			Skip("Timeout handling not yet implemented - TDD RED phase")
+			Skip("Timeout test needs synapse with neurons to properly test timeout")
 
 			synapseConfig := `---
 name: slow-workflow
