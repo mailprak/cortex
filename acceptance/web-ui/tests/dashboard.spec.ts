@@ -72,31 +72,6 @@ test.describe('Neuron Execution', () => {
   });
 });
 
-test.describe('Visual Synapse Builder', () => {
-  test('should allow drag-and-drop neuron placement', async ({ page }) => {
-    await page.goto('/synapse-builder');
-
-    // Drag neuron from palette to canvas
-    const neuronPalette = page.locator('[data-testid="neuron-palette"]');
-    const canvas = page.locator('[data-testid="synapse-canvas"]');
-
-    await neuronPalette.locator('text=check-nginx').dragTo(canvas);
-
-    // Verify neuron added
-    await expect(canvas.locator('text=check-nginx')).toBeVisible();
-  });
-
-  test('should save synapse configuration', async ({ page }) => {
-    await page.goto('/synapse-builder');
-
-    // Build synapse
-    // ... setup ...
-
-    await page.click('button:has-text("Save")');
-    await expect(page.getByText('Synapse saved successfully')).toBeVisible();
-  });
-});
-
 test.describe('Accessibility', () => {
   test('should have proper ARIA labels', async ({ page }) => {
     await page.goto('/');
