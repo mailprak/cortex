@@ -89,7 +89,15 @@ claude-flow
 hive-mind-prompt-*.txt
 .claude
 
+# Test coverage directory
+coverage/
+
 # Playwright E2E test artifacts
 acceptance/web-ui/test-results/
 acceptance/web-ui/playwright-report/
 acceptance/web-ui/.cache/
+**/playwright-report/
+**/test-results/
+
+# Test log files
+*.log
