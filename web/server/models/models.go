@@ -21,9 +21,12 @@ type SynapseNode struct {
 
 // SynapseConnection represents a connection between nodes
 type SynapseConnection struct {
-	ID     string `json:"id"`
-	Source string `json:"source"` // source node ID
-	Target string `json:"target"` // target node ID
+	ID           string `json:"id"`
+	Source       string `json:"source"`       // source node ID
+	Target       string `json:"target"`       // target node ID
+	Type         string `json:"type"`         // "data" or "control"
+	SourceHandle string `json:"sourceHandle"` // handle/port ID on source node
+	TargetHandle string `json:"targetHandle"` // handle/port ID on target node
 }
 
 // Synapse represents a synapse workflow with visual builder support

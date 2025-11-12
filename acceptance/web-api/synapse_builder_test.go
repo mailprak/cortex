@@ -71,6 +71,7 @@ var _ = Describe("Synapse Builder API", Label("acceptance", "web-api", "synapse-
 							"id":     "conn-1",
 							"source": "node-1",
 							"target": "node-2",
+							"type":   "data",
 						},
 					},
 				}
@@ -91,6 +92,69 @@ var _ = Describe("Synapse Builder API", Label("acceptance", "web-api", "synapse-
 				Expect(result["description"]).To(Equal("A test synapse for health checks"))
 				Expect(result["nodes"]).To(HaveLen(2))
 				Expect(result["connections"]).To(HaveLen(1))
+
+				// Validate connection structure has all required fields
+				connections := result["connections"].([]interface{})
+				connection := connections[0].(map[string]interface{})
+				Expect(connection["id"]).To(Equal("conn-1"))
+				Expect(connection["source"]).To(Equal("node-1"))
+				Expect(connection["target"]).To(Equal("node-2"))
+				Expect(connection["type"]).To(Equal("data")) // Critical: validate type field exists
+			})
+
+			It("should support port-based connections with sourceHandle and targetHandle", func() {
+				// RED: Test for react-flow style connections with handles/ports
+				synapseData := map[string]interface{}{
+					"name":        "port-connected-synapse",
+					"description": "Testing port-based connections",
+					"nodes": []map[string]interface{}{
+						{
+							"id":       "node-1",
+							"type":     "neuron",
+							"neuronId": "check-nginx",
+							"position": map[string]int{"x": 100, "y": 100},
+							"data": map[string]string{
+								"label": "Nginx Checker",
+							},
+						},
+						{
+							"id":       "node-2",
+							"type":     "neuron",
+							"neuronId": "check-database",
+							"position": map[string]int{"x": 300, "y": 100},
+							"data": map[string]string{
+								"label": "Database Checker",
+							},
+						},
+					},
+					"connections": []map[string]interface{}{
+						{
+							"id":           "conn-1",
+							"source":       "node-1",
+							"target":       "node-2",
+							"type":         "data",
+							"sourceHandle": "output-1", // Port/handle on source node
+							"targetHandle": "input-1",  // Port/handle on target node
+						},
+					},
+				}
+
+				body, _ := json.Marshal(synapseData)
+				resp, err := http.Post(apiURL+"/api/synapses", "application/json", bytes.NewBuffer(body))
+				Expect(err).NotTo(HaveOccurred())
+				defer resp.Body.Close()
+
+				Expect(resp.StatusCode).To(Equal(http.StatusCreated))
+
+				var result map[string]interface{}
+				bodyBytes, _ := io.ReadAll(resp.Body)
+				json.Unmarshal(bodyBytes, &result)
+
+				// Validate connection has handle information
+				connections := result["connections"].([]interface{})
+				connection := connections[0].(map[string]interface{})
+				Expect(connection["sourceHandle"]).To(Equal("output-1"))
+				Expect(connection["targetHandle"]).To(Equal("input-1"))
 			})
 
 			It("should save the synapse and make it available via GET", func() {

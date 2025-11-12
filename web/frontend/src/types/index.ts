@@ -45,10 +45,10 @@ export interface SystemMetrics {
   uptime: number;
 }
 
+// React Flow compatible node type
 export interface SynapseNode {
   id: string;
   type: 'neuron' | 'input' | 'output';
-  neuronId?: string;
   position: {
     x: number;
     y: number;
@@ -56,14 +56,18 @@ export interface SynapseNode {
   data: {
     label: string;
     description?: string;
+    neuronId?: string;
   };
 }
 
+// React Flow compatible edge/connection type
 export interface SynapseConnection {
   id: string;
   source: string;
   target: string;
-  type: 'data' | 'control';
+  type?: 'data' | 'control';
+  sourceHandle?: string; // Handle/port on source node
+  targetHandle?: string; // Handle/port on target node
 }
 
 export interface Synapse {
