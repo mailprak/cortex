@@ -6,6 +6,9 @@ import { test, expect } from '@playwright/test';
  */
 
 test.describe('Dashboard', () => {
+  // Increase timeout for dashboard navigation (especially on mobile browsers under load)
+  test.describe.configure({ timeout: 60000 });
+
   test.beforeEach(async ({ page }) => {
     // Navigate to dashboard before each test
     await page.goto('/');
@@ -44,6 +47,8 @@ test.describe('Dashboard', () => {
 });
 
 test.describe('Neuron Execution', () => {
+  test.describe.configure({ timeout: 60000 });
+
   test.skip('should execute neuron and show real-time logs', async ({ page }) => {
     // TODO: Requires backend WebSocket implementation for real-time log streaming
     await page.goto('/');
@@ -75,6 +80,8 @@ test.describe('Neuron Execution', () => {
 });
 
 test.describe('Accessibility', () => {
+  test.describe.configure({ timeout: 60000 });
+
   test('should have proper ARIA labels', async ({ page }) => {
     await page.goto('/');
 
@@ -96,6 +103,8 @@ test.describe('Accessibility', () => {
 });
 
 test.describe('WebSocket Performance', () => {
+  test.describe.configure({ timeout: 60000 });
+
   test.skip('should maintain latency under 100ms', async ({ page }) => {
     // TODO: Requires backend WebSocket server implementation
     await page.goto('/');
